@@ -1,0 +1,259 @@
+import { motion } from "framer-motion";
+
+function mobTeam() {
+  return (
+    <section className="w-full min-h-screen py-12 px-5 relative overflow-hidden bg-[#F7F6FE]">
+      {/* Background image */}
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+        <img
+          src="/team-background.svg"
+          alt=""
+          className="w-full h-full object-cover"
+          aria-hidden="true"
+        />
+      </div>
+
+      <div className="max-w-[1280px] mx-auto relative z-[2]">
+        {/* Header Section */}
+        <motion.div
+          className="flex flex-col items-center gap-4 mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h2 className="text-[32px] font-semibold leading-[1.2] text-center text-zinc-800 font-['Hanken_Grotesk'] tracking-[-0.5px]">
+            Team Presentation
+          </h2>
+          <p className="text-[14px] font-normal leading-4 text-center text-neutral-400 font-['Hanken_Grotesk'] max-w-[828px]">
+            Our team and partners is a blend of innovative thinkers, experienced
+            investors, and blockchain enthusiasts united  by a common mission: to
+            redefine the way the world invests. Together, we're creating a
+            secure, transparent, and scalable platform that empowers users to
+            achieve their financial goals.
+          </p>
+        </motion.div>
+
+        {/* Team Image Section */}
+        <motion.div
+          className="w-full mb-12 flex justify-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <div className="w-full max-w-[1136px] h-auto relative">
+            <div className="w-full h-[400px] relative bg-neutral-200 overflow-hidden">
+              <img
+                className="w-full h-full object-cover"
+                src="/team-video-image.png"
+                alt="Team presentation"
+                style={{ 
+                  width: '100%', 
+                  maxWidth: '450px', 
+                  height: '600px', 
+                  minHeight: '411px',
+                  objectFit: 'cover',
+                  display: 'block',
+                  margin: '0 auto',
+                  
+                }}
+              />
+              <motion.div
+                className="w-24 h-24 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 absolute bg-white/30 rounded-full border-4 border-zinc-500 backdrop-blur-lg cursor-pointer flex items-center justify-center"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              >
+                <img src="/play-video.svg" alt="Play icon" className="w-10 h-10" />
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Executive Members Section */}
+        <motion.div
+          className="flex flex-col items-center gap-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <h3 className="text-[32px] font-semibold leading-[1.2] text-center text-zinc-800 font-['Hanken_Grotesk'] tracking-[-0.5px]">
+            Executive Members
+          </h3>
+          <div className="grid grid-cols-1 gap-10 w-full max-w-[1200px]">
+            {/* Member 1 */}
+            <motion.div
+              className="flex flex-col items-center gap-5"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+            >
+              <div className="w-full max-w-[288px] aspect-square relative bg-neutral-200 rounded-[15px] overflow-hidden">
+                <img
+                  className="w-full h-full object-cover"
+                  src="/george.png"
+                  alt="Georgian Ionita"
+                  style={{ 
+                  width: '100%', 
+                  maxWidth: '450px', 
+                  height: '200px', 
+                  minHeight: '290px',
+                  objectFit: 'cover',
+                  display: 'block',
+                  margin: '0 auto',
+                }}
+                />
+                <div data-svg-wrapper className="absolute bottom-4 right-4">
+                  <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+                    <path
+                      d="M22 0C9.85159 0 0 9.85159 0 22C0 34.1484 9.85159 44 22 44C34.1484 44 44 34.1484 44 22C44 9.85159 34.1484 0 22 0ZM15.6071 33.2578H10.2491V17.1382H15.6071V33.2578ZM12.9282 14.937H12.8933C11.0953 14.937 9.9325 13.6993 9.9325 12.1524C9.9325 10.5706 11.1309 9.36719 12.9638 9.36719C14.7967 9.36719 15.9246 10.5706 15.9595 12.1524C15.9595 13.6993 14.7967 14.937 12.9282 14.937ZM34.9269 33.2578H29.5696V24.6342C29.5696 22.4669 28.7938 20.9889 26.8551 20.9889C25.3751 20.9889 24.4935 21.9859 24.1061 22.9483C23.9645 23.2928 23.9299 23.7741 23.9299 24.2559V33.2578H18.5722C18.5722 33.2578 18.6424 18.6505 18.5722 17.1382H23.9299V19.4205C24.6419 18.3221 25.9159 16.7598 28.7585 16.7598C32.2836 16.7598 34.9269 19.0637 34.9269 24.0148V33.2578Z"
+                      fill="#CBCBCB"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div className="flex flex-col items-center gap-2 w-full">
+                <div className="text-center text-zinc-800 text-xl font-semibold font-['Hanken_Grotesk'] leading-7">
+                  Georgian Ionita
+                </div>
+                <div className="text-center text-neutral-400 text-base font-medium font-['Hanken_Grotesk'] leading-6">
+                  CEO BOUND Protocol
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Member 2 */}
+            <motion.div
+              className="flex flex-col items-center gap-5"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
+            >
+              <div className="w-full max-w-[288px] aspect-square relative bg-neutral-200 rounded-[15px] overflow-hidden">
+                <img
+                  className="w-full h-full object-cover"
+                  src="/joshua.png"
+                  alt="Joshua Oloma"
+                  style={{ 
+                  width: '100%', 
+                  maxWidth: '450px', 
+                  height: '200px', 
+                  minHeight: '422px',
+                  objectFit: 'cover',
+                  display: 'block',
+                  margin: '0 auto',
+                }}
+                />
+                <div data-svg-wrapper className="absolute bottom-4 right-4">
+                  <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+                    <path
+                      d="M22 0C9.85159 0 0 9.85159 0 22C0 34.1484 9.85159 44 22 44C34.1484 44 44 34.1484 44 22C44 9.85159 34.1484 0 22 0ZM15.6071 33.2578H10.2491V17.1382H15.6071V33.2578ZM12.9282 14.937H12.8933C11.0953 14.937 9.9325 13.6993 9.9325 12.1524C9.9325 10.5706 11.1309 9.36719 12.9638 9.36719C14.7967 9.36719 15.9246 10.5706 15.9595 12.1524C15.9595 13.6993 14.7967 14.937 12.9282 14.937ZM34.9269 33.2578H29.5696V24.6342C29.5696 22.4669 28.7938 20.9889 26.8551 20.9889C25.3751 20.9889 24.4935 21.9859 24.1061 22.9483C23.9645 23.2928 23.9299 23.7741 23.9299 24.2559V33.2578H18.5722C18.5722 33.2578 18.6424 18.6505 18.5722 17.1382H23.9299V19.4205C24.6419 18.3221 25.9159 16.7598 28.7585 16.7598C32.2836 16.7598 34.9269 19.0637 34.9269 24.0148V33.2578Z"
+                      fill="#CBCBCB"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div className="flex flex-col items-center gap-2 w-full">
+                <div className="text-center text-zinc-800 text-xl font-semibold font-['Hanken_Grotesk'] leading-7">
+                  Joshua Oloma
+                </div>
+                <div className="text-center text-neutral-400 text-base font-medium font-['Hanken_Grotesk'] leading-6">
+                  CTO BOUND Protocol
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Member 3 */}
+            <motion.div
+              className="flex flex-col items-center gap-5"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
+            >
+              <div className="w-full max-w-[288px] aspect-square relative bg-neutral-200 rounded-[15px] overflow-hidden">
+                <img
+                  className="w-full h-full object-cover"
+                  src="/monalisa.png"
+                  alt="Mona El Isa"
+                  style={{ 
+                  width: '101%', 
+                  maxWidth: '450px', 
+                  height: '200px', 
+                  minHeight: '325px',
+                  objectFit: 'cover',
+                  display: 'block',
+                  margin: '0 auto',
+                }}
+                />
+                <div data-svg-wrapper className="absolute bottom-4 right-4">
+                  <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+                    <path
+                      d="M22 0C9.85159 0 0 9.85159 0 22C0 34.1484 9.85159 44 22 44C34.1484 44 44 34.1484 44 22C44 9.85159 34.1484 0 22 0ZM15.6071 33.2578H10.2491V17.1382H15.6071V33.2578ZM12.9282 14.937H12.8933C11.0953 14.937 9.9325 13.6993 9.9325 12.1524C9.9325 10.5706 11.1309 9.36719 12.9638 9.36719C14.7967 9.36719 15.9246 10.5706 15.9595 12.1524C15.9595 13.6993 14.7967 14.937 12.9282 14.937ZM34.9269 33.2578H29.5696V24.6342C29.5696 22.4669 28.7938 20.9889 26.8551 20.9889C25.3751 20.9889 24.4935 21.9859 24.1061 22.9483C23.9645 23.2928 23.9299 23.7741 23.9299 24.2559V33.2578H18.5722C18.5722 33.2578 18.6424 18.6505 18.5722 17.1382H23.9299V19.4205C24.6419 18.3221 25.9159 16.7598 28.7585 16.7598C32.2836 16.7598 34.9269 19.0637 34.9269 24.0148V33.2578Z"
+                      fill="#CBCBCB"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div className="flex flex-col items-center gap-3 w-full">
+                <div className="text-center text-zinc-800 text-xl font-semibold font-['Hanken_Grotesk'] leading-7">
+                  Mona El Isa
+                </div>
+                <div className="text-center text-neutral-400 text-base font-medium font-['Hanken_Grotesk'] leading-6">
+                  CEO Avantgarde <br />Asset Management Partner
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Member 4 */}
+            <motion.div
+              className="flex flex-col items-center gap-5"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, ease: "easeOut", delay: 0.3 }}
+            >
+              <div className="w-full max-w-[288px] aspect-square relative bg-neutral-200 rounded-[15px] overflow-hidden">
+                <img
+                  className="w-full h-full object-cover"
+                  src="/frances.png"
+                  alt="Frances Edwards"
+                  style={{ 
+                  width: '100%', 
+                  maxWidth: '450px', 
+                  height: '200px', 
+                  minHeight: '300px',
+                  objectFit: 'cover',
+                  display: 'block',
+                  margin: '0 auto',
+                }}
+                />
+                <div data-svg-wrapper className="absolute bottom-4 right-4">
+                  <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+                    <path
+                      d="M22 0C9.85159 0 0 9.85159 0 22C0 34.1484 9.85159 44 22 44C34.1484 44 44 34.1484 44 22C44 9.85159 34.1484 0 22 0ZM15.6071 33.2578H10.2491V17.1382H15.6071V33.2578ZM12.9282 14.937H12.8933C11.0953 14.937 9.9325 13.6993 9.9325 12.1524C9.9325 10.5706 11.1309 9.36719 12.9638 9.36719C14.7967 9.36719 15.9246 10.5706 15.9595 12.1524C15.9595 13.6993 14.7967 14.937 12.9282 14.937ZM34.9269 33.2578H29.5696V24.6342C29.5696 22.4669 28.7938 20.9889 26.8551 20.9889C25.3751 20.9889 24.4935 21.9859 24.1061 22.9483C23.9645 23.2928 23.9299 23.7741 23.9299 24.2559V33.2578H18.5722C18.5722 33.2578 18.6424 18.6505 18.5722 17.1382H23.9299V19.4205C24.6419 18.3221 25.9159 16.7598 28.7585 16.7598C32.2836 16.7598 34.9269 19.0637 34.9269 24.0148V33.2578Z"
+                      fill="#CBCBCB"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div className="flex flex-col items-center gap-2 w-full">
+                <div className="text-center text-zinc-800 text-xl font-semibold font-['Hanken_Grotesk'] leading-7">
+                  Frances Edwards
+                </div>
+                <div className="text-center text-neutral-400 text-base font-medium font-['Hanken_Grotesk'] leading-6">
+                  COO Avantgarde <br />Asset Management Partner
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+export default mobTeam;
