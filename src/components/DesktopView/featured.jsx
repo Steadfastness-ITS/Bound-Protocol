@@ -11,7 +11,8 @@ function Featured() {
     <>
       {/* Desktop Version */}
       <motion.section
-        className="hidden lg:block w-full bg-[#F7F6FE] py-12 lg:py-20 xl:py-24 px-5 lg:px-10 xl:px-20 relative overflow-hidden"
+      id="features"  
+      className="hidden lg:block w-full bg-[#F7F6FE] py-12 lg:py-20 xl:py-24 px-5 lg:px-10 xl:px-20 relative overflow-hidden"
         {...textReveal}
       >
         {/* Background image */}

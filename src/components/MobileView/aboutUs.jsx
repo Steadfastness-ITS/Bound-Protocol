@@ -4,6 +4,7 @@ import { slideInLeft, slideInRight, imageReveal, textReveal, buttonHover } from 
 const AboutUs = () => {
   return (
     <motion.section 
+      id="mission"    
       className="w-full bg-white py-12 px-5 relative overflow-hidden"
       {...textReveal}
     >

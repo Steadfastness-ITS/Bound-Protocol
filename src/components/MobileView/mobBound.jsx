@@ -29,11 +29,11 @@ const MobBound = () => {
   return (
     <div className="bg-white min-h-screen font-sans overflow-hidden relative">
       {/* 1. HEADER - Integrated Hamburger Logic */}
-      <header className="flex justify-between items-center px-6 py-5 bg-white relative z-[1002]">
+      <header className="fixed top-0 left-0 w-full flex justify-between items-center px-4 py-3 bg-white z-[1002] h-[70px] border-b border-gray-50">
         <img 
           src="/boundprotocollogo.png" 
           alt="Bound Protocol" 
-          className="h-10 w-auto" 
+          className="h-8 w-auto" 
         />
         
         {/* Animated Hamburger Icon */}
@@ -65,12 +65,12 @@ const MobBound = () => {
       />
 
       <nav
-        className={`fixed top-0 right-0 w-[280px] h-full bg-white z-[1001] 
+        className={`fixed top-0 right-0 w-[280px] h-[500px] rounded-bl-2xl bg-white z-[1001] 
         transform transition-transform duration-300 ease-in-out
-        shadow-[-4px_0_15px_rgba(0,0,0,0.1)]
+        shadow-[-10px_0_30px_rgba(0,0,0,0.1)]
         ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}
       >
-        <div className="flex flex-col pt-24 px-8 gap-1">
+        <div className="flex flex-col pt-24 px-8 gap-2">
           {navLinks.map((link) => (
             <a
               key={link}
@@ -86,7 +86,7 @@ const MobBound = () => {
       </nav>
 
       {/* 3. HERO SECTION - Original Video Layout */}
-      <section className="px-6 pt-4 pb-16">
+      <section id="home" className="px-4 pt-24 pb-16">
         <div className="relative flex justify-center items-center mb-12">
           <video
             src="/herovideomobile.mp4"

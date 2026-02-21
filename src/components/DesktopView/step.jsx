@@ -44,9 +44,10 @@ function Step() {
   ];
 
   return (
-    <motion.section className="relative w-full overflow-hidden" {...textReveal}>
+    <motion.section id="how-it-works" className="relative w-full overflow-hidden" {...textReveal}>
       {/* Background Images - Desktop Only */}
       {/* Stepper Background Image */}
+      i
 <div className="absolute inset-0 w-full h-full z-0 pointer-events-none overflow-hidden">
   <img
     src="/stepperbackground.png"

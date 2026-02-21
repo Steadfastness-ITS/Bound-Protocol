@@ -8,7 +8,7 @@ import {
 
 function Team() {
   return (
-    <section className="w-full min-h-screen py-24 px-20 relative overflow-hidden bg-[#F7F6FE]">
+    <section id="leadership" className="w-full min-h-screen py-24 px-20 relative overflow-hidden bg-[#F7F6FE]">
       {/* Background image */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <img

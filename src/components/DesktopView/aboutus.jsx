@@ -4,7 +4,8 @@ import { fadeInUp, slideInLeft, slideInRight, imageReveal, textReveal, buttonHov
 function Aboutus() {
   return (
     <motion.section 
-      className="w-full bg-white py-24 px-20 relative overflow-hidden"
+    id="mission"  
+    className="w-full bg-white py-24 px-20 relative overflow-hidden"
       {...textReveal}
     >
       {/* Background Image Container */}

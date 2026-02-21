@@ -3,7 +3,7 @@ import { textReveal, staggerContainer, staggerItem, cardHover, imageReveal } fro
 
 function FeaturedMobile() {
   return (
-    <section className="w-full bg-[#F7F6FE] py-12 lg:py-20 xl:py-24 px-5 lg:px-10 xl:px-20 relative overflow-hidden">
+    <section id="features" className="w-full bg-[#F7F6FE] py-12 px-4 relative overflow-hidden flex flex-col items-center">
       {/* Background image */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <img
@@ -13,6 +13,7 @@ function FeaturedMobile() {
           aria-hidden="true"
         />
       </div>
+      
       {/* Background wavy pattern */}
       <div className="absolute inset-0 w-full h-full z-[1] pointer-events-none opacity-30">
         <svg
@@ -32,7 +33,9 @@ function FeaturedMobile() {
         </svg>
       </div>
 
-      <div className="max-w-[1280px] mx-auto relative z-[2]">
+      {/* This wrapper ensures the whole content block is always centered */}
+      <div className="w-full max-w-[500px] mx-auto relative z-[2] flex flex-col items-center">
+        
         {/* Header Section */}
         <div className="flex flex-col items-center gap-4 mb-8 lg:mb-16">
           <h2
@@ -51,10 +54,12 @@ function FeaturedMobile() {
           </p>
         </div>
 
-        {/* Updated parent to center all cards */}
+        {/* THE FIX: Each card is wrapped in a 'w-full flex justify-center'. 
+            This forces the inner fixed-width div to stay in the middle of the screen.
+        */}
         <div className="flex flex-col items-center gap-6 w-full">
           
-          {/* Card 1: Where Your Savings Are Invested */}
+          {/* Card 1 */}
           <div className="w-full flex justify-center relative top-[-10px]">
             <div className="bg-white rounded-2xl lg:rounded-3xl shadow-sm border shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
               <div className="w-full h-64 p-4 bg-white rounded-xl overflow-hidden flex flex-col justify-start items-center gap-4">
@@ -89,70 +94,59 @@ function FeaturedMobile() {
             </div>
           </div>
 
-{/* Card 2: Why You Earn Better Rates with BOUND */}
-<div className="w-full flex justify-center">
-  <div className="bg-white rounded-2xl lg:rounded-3xl shadow-sm border border-[#E5EAF2]">
-    {/* Implementation: Increased height to h-[200px] to allow for the staggered UI look */}
-    <div className="w-full max-w-[350px] h-[250px] p-6 relative bg-white rounded-xl shadow-[0px_7.705320835113525px_9.631650924682617px_0px_rgba(96,51,255,0.20)] inline-flex flex-col justify-start items-center gap-5 overflow-hidden">
-      <div className="self-stretch flex flex-col justify-start items-center gap-2">
-        <div className="self-stretch text-center justify-start text-zinc-800 text-base font-semibold font-['Hanken_Grotesk'] leading-5">
-          Why You Earn Better Rates with BOUND
-        </div>
-        <div className="self-stretch text-center justify-start text-neutral-400 text-[13px] font-normal font-['Hanken_Grotesk'] leading-4">
-          Returns enhanced through professionally built investment
-          strategies managed by institutional asset managers.
-        </div>
-      </div>
+          {/* Card 2: EXACT ORIGINAL CODE - Centered */}
+          <div className="w-full flex justify-center">
+            <div className="bg-white rounded-2xl lg:rounded-3xl shadow-sm border border-[#E5EAF2]">
+              <div className="w-full max-w-[350px] h-[250px] p-6 relative bg-white rounded-xl shadow-[0px_7.705320835113525px_9.631650924682617px_0px_rgba(96,51,255,0.20)] inline-flex flex-col justify-start items-center gap-5 overflow-hidden">
+                <div className="self-stretch flex flex-col justify-start items-center gap-2">
+                  <div className="self-stretch text-center justify-start text-zinc-800 text-base font-semibold font-['Hanken_Grotesk'] leading-5">
+                    Why You Earn Better Rates with BOUND
+                  </div>
+                  <div className="self-stretch text-center justify-start text-neutral-400 text-[13px] font-normal font-['Hanken_Grotesk'] leading-4">
+                    Returns enhanced through professionally built investment
+                    strategies managed by institutional asset managers.
+                  </div>
+                </div>
 
-      {/* Visual Area: Increased width/height and adjusted positioning for accuracy */}
-      <div className="w-full h-auto relative mt-0 flex left-[22px] justify-center">
-        {/* Top Card - Pushed Right */}
-        <div className="w-48 h-10 px-3 py-2 left-[30px] top-[1px] absolute bg-white rounded-lg outline outline-[0.59px] outline-indigo-950 inline-flex justify-between items-center shadow-sm">
-          <div className="flex flex-col justify-center">
-            <div className="text-zinc-800 text-[9px] font-normal font-['Hanken_Grotesk']">
-              Lending activities
+                <div className="w-full h-auto relative mt-0 flex left-[22px] justify-center">
+                  <div className="w-48 h-10 px-3 py-2 left-[30px] top-[1px] absolute bg-white rounded-lg outline outline-[0.59px] outline-indigo-950 inline-flex justify-between items-center shadow-sm">
+                    <div className="flex flex-col justify-center">
+                      <div className="text-zinc-800 text-[9px] font-normal font-['Hanken_Grotesk']">Lending activities</div>
+                    </div>
+                    <img className="w-8 h-6" src="/rate1.svg" alt="" />
+                    <div className="flex flex-col items-end">
+                      <div className="text-zinc-800 text-[9px] font-normal font-['Hanken_Grotesk']">$513,676.76</div>
+                      <div className="text-neutral-400 text-[9px]">+8.18%</div>
+                    </div>
+                  </div>
+
+                  <div className="w-48 h-10 px-3 py-2 left-[-8px] top-[29px] absolute bg-white rounded-xl outline outline-[0.59px] outline-indigo-950 inline-flex justify-between items-center shadow-sm">
+                    <div className="flex flex-col justify-center">
+                      <div className="text-zinc-800 text-[9px] font-normal font-['Hanken_Grotesk']">Liquidity provision</div>
+                    </div>
+                    <img className="w-8 h-6" src="/rate2.svg" alt="" />
+                    <div className="flex flex-col items-end">
+                      <div className="text-zinc-800 text-[10px] font-normal font-['Hanken_Grotesk']">$280,561.24</div>
+                      <div className="text-neutral-400 text-[9px]">4.65%</div>
+                    </div>
+                  </div>
+
+                  <div className="w-48 h-10 px-3 py-2 left-[16px] top-[54px] absolute bg-white rounded-xl shadow-[0px_10px_20px_0px_rgba(19,13,80,0.15)] outline outline-[1px] outline-indigo-950 inline-flex justify-between items-center z-10">
+                    <div className="flex flex-col justify-center">
+                      <div className="text-zinc-800 text-[10px] font-semibold font-['Hanken_Grotesk']">Arbitrage</div>
+                    </div>
+                    <img className="w-8 h-6" src="/rate3.svg" alt="" />
+                    <div className="flex flex-col items-end">
+                      <div className="text-zinc-800 text-[10px] font-semibold font-['Hanken_Grotesk']">$429,850.15</div>
+                      <div className="text-neutral-400 text-[9px]">+6.43%</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <img className="w-8 h-6" src="/rate1.svg" alt="" />
-          <div className="flex flex-col items-end">
-            <div className="text-zinc-800 text-[9px] font-normal font-['Hanken_Grotesk']">$513,676.76</div>
-            <div className="text-neutral-400 text-[9px]">+8.18%</div>
-          </div>
-        </div>
 
-        {/* Middle Card - Pushed Left */}
-        <div className="w-48 h-10 px-3 py-2 left-[-8px] top-[29px] absolute bg-white rounded-xl outline outline-[0.59px] outline-indigo-950 inline-flex justify-between items-center shadow-sm">
-          <div className="flex flex-col justify-center">
-            <div className="text-zinc-800 text-[9px] font-normal font-['Hanken_Grotesk']">
-              Liquidity provision
-            </div>
-          </div>
-          <img className="w-8 h-6" src="/rate2.svg" alt="" />
-          <div className="flex flex-col items-end">
-            <div className="text-zinc-800 text-[10px] font-normal font-['Hanken_Grotesk']">$280,561.24</div>
-            <div className="text-neutral-400 text-[9px]">4.65%</div>
-          </div>
-        </div>
-
-        {/* Bottom Card - Centered/Main Focus */}
-        <div className="w-48 h-10 px-3 py-2 left-[16px] top-[54px] absolute bg-white rounded-xl shadow-[0px_10px_20px_0px_rgba(19,13,80,0.15)] outline outline-[1px] outline-indigo-950 inline-flex justify-between items-center z-10">
-          <div className="flex flex-col justify-center">
-            <div className="text-zinc-800 text-[10px] font-semibold font-['Hanken_Grotesk']">
-              Arbitrage
-            </div>
-          </div>
-          <img className="w-8 h-6" src="/rate3.svg" alt="" />
-          <div className="flex flex-col items-end">
-            <div className="text-zinc-800 text-[10px] font-semibold font-['Hanken_Grotesk']">$429,850.15</div>
-            <div className="text-neutral-400 text-[9px]">+6.43%</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-          {/* Card 3: How Your Savings Are Managed */}
+          {/* Card 3: EXACT ORIGINAL CODE - Centered */}
           <div className="w-full flex justify-center">
             <div className="bg-white rounded-2xl lg:rounded-3xl shadow-sm border border-[#E5EAF2]">
               <div className="h-60 p-4 relative bg-white rounded-xl shadow-[0px_2.7417476177215576px_2.7417476177215576px_0px_rgba(0,0,0,0.25)] inline-flex flex-col justify-start items-center gap-5 overflow-hidden">
@@ -166,13 +160,12 @@ function FeaturedMobile() {
                     keep the portfolio aligned with best-in-class results.
                   </div>
                 </div>
-                <div className="w-64 h-52 left-[26px] top-[116px] absolute bg-white rounded-2xl shadow-[0px_-2.8533332347869873px_14.266666412353516px_0px_rgba(19,13,80,0.15)] outline outline-[0.71px] outline-offset-[-0.71px] outline-indigo-950 overflow-hidden">
-                  {/* Your exact SVG paths kept below */}
-                  <div className="w-96 h-0 left-[-73px] top-[32px] absolute outline outline-[0.24px] outline-offset-[-0.12px] outline-indigo-100" />
-                  <div className="w-96 h-0 left-[-73px] top-[69px] absolute outline outline-[0.24px] outline-offset-[-0.12px] outline-indigo-100" />
-                  <div className="w-96 h-0 left-[-73px] top-[107px] absolute outline outline-[0.24px] outline-offset-[-0.12px] outline-indigo-100" />
-                  <div className="w-96 h-0 left-[-73px] top-[144px] absolute outline outline-[0.24px] outline-offset-[-0.12px] outline-indigo-100" />
-                  <div className="w-96 h-0 left-[-73px] top-[182px] absolute outline outline-[0.24px] outline-offset-[-0.12px] outline-indigo-100" />
+                <div className="w-64 h-52 top-[116px] absolute bg-white rounded-2xl shadow-[0px_-2.8533332347869873px_14.266666412353516px_0px_rgba(19,13,80,0.15)] outline outline-[0.71px] outline-offset-[-0.71px] outline-indigo-950 overflow-hidden">
+                  <div className="w-96 h-0 left-[-73px] top-[32px] absolute outline outline-[0.24px] outline-indigo-100" />
+                  <div className="w-96 h-0 left-[-73px] top-[69px] absolute outline outline-[0.24px] outline-indigo-100" />
+                  <div className="w-96 h-0 left-[-73px] top-[107px] absolute outline outline-[0.24px] outline-indigo-100" />
+                  <div className="w-96 h-0 left-[-73px] top-[144px] absolute outline outline-[0.24px] outline-indigo-100" />
+                  <div className="w-96 h-0 left-[-73px] top-[182px] absolute outline outline-[0.24px] outline-indigo-100" />
                   <div className="w-0 h-8 left-[315px] top-[42px] absolute outline outline-[0.62px] outline-offset-[-0.31px] outline-indigo-300" />
                   <div className="w-0 h-3.5 left-[315px] top-[51px] absolute outline outline-[4.96px] outline-offset-[-2.48px] outline-indigo-300" />
                   <div className="w-0 h-10 left-[302px] top-[47px] absolute outline outline-[0.62px] outline-offset-[-0.31px] outline-indigo-950" />
@@ -241,7 +234,7 @@ function FeaturedMobile() {
             </div>
           </div>
 
-          {/* Card 4: How Your Funds Are Protected */}
+          {/* Card 4: EXACT ORIGINAL CODE - Centered */}
           <div className="w-full flex justify-center">
             <div className="bg-white rounded-2xl lg:rounded-3xl shadow-sm shadow-[0px_8px_60px_0px_rgba(19,13,80,0.30)] outline outline-2 outline-offset-[-2px] outline-[#130d50]">
               <div className="h-52 p-4 relative bg-gradient-to-b from-white to-indigo-100 rounded-xl shadow-[0px_4px_20px_0px_rgba(19,13,80,0.25)] outline outline-[0.69px] outline-offset-[-0.69px] outline-indigo-950 inline-flex flex-col justify-start items-center gap-5 overflow-hidden">
@@ -257,7 +250,7 @@ function FeaturedMobile() {
                     assets.
                   </div>
                 </div>
-                <div className="w-64 h-22 left-[5px] top-[131px] justify-center absolute transform scale-75">
+                <div className="w-64 h-18 top-[131px] left-[22px] justify-center absolute transform scale-75">
                   <div className="w-1 h-28 left-[2.46px] top-[-5.41px] absolute bg-white" />
                   <div className="w-1 h-28 left-[54.57px] top-[24.09px] absolute bg-white" />
                   <div className="w-1 h-28 left-[111.10px] top-[15.73px] absolute bg-white" />
@@ -267,7 +260,6 @@ function FeaturedMobile() {
                   <div className="w-1 h-28 left-[291.01px] top-[71.28px] absolute bg-white" />
                   <div className="w-1 h-28 left-[157.30px] top-[73.25px] absolute bg-white" />
                   <div className="w-1 h-28 left-[86.52px] top-[76.69px] absolute bg-white" />
-                  <div className="w-1 h-28 left-[27.53px] top-[73.74px] absolute bg-white" />
                   <div className="w-1 h-28 left-[307.73px] top-[14.26px] absolute bg-white" />
                   <div className="p-2 left-[241px] top-[3px] absolute bg-white rounded-[999px] shadow-[0px_4px_20px_0px_rgba(19,13,80,0.25)] inline-flex justify-center items-center gap-1">
                     <div className="w-12 h-12 relative">
@@ -282,7 +274,7 @@ function FeaturedMobile() {
                     <div className="w-12 h-12 relative">
                       <div className="w-14 h-14 left-[-3px] top-[-3px] absolute bg-indigo-950 rounded-full" />
                       <img
-                        className="w-68 h-80 left-[8px] top-1 absolute"
+                        className="w-68 h-80 left-[8px] top-[-1px] absolute"
                         src="/new-file5.svg"
                       />
                     </div>

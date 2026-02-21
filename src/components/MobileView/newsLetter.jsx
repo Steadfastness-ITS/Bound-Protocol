@@ -41,6 +41,7 @@ function NewsLetter() {
 
   return (
     <motion.section
+      id="contact-us"
       className="w-full bg-[#19174F] py-12 px-5 mx-auto"
       {...textReveal}
     >
@@ -156,6 +157,7 @@ function NewsLetter() {
                 <a
                   href="#mission"
                   onClick={(e) => handleLinkClick(e, "About Us")}
+                  id="mission"
                   className="justify-start text-white text-[14px] font-medium font-['Hanken_Grotesk'] cursor-pointer"
                 >
                   About Us
@@ -163,6 +165,7 @@ function NewsLetter() {
                 <a
                   href="#features"
                   onClick={(e) => handleLinkClick(e, "Features")}
+                  id="features"
                   className="justify-start text-white text-[14px] font-medium font-['Hanken_Grotesk'] cursor-pointer"
                 >
                   Features
@@ -170,6 +173,7 @@ function NewsLetter() {
                 <a
                   href="#how-it-works"
                   onClick={(e) => handleLinkClick(e, "How it Works")}
+                  id="how-it-works"
                   className="justify-start text-white text-[14px] font-medium font-['Hanken_Grotesk'] cursor-pointer"
                 >
                   How it Works
@@ -177,6 +181,7 @@ function NewsLetter() {
                 <a
                   href="#leadership"
                   onClick={(e) => handleLinkClick(e, "Our Teams")}
+                  id="leadership"
                   className="justify-start text-white text-[14px] font-medium font-['Hanken_Grotesk'] cursor-pointer"
                 >
                   Our Teams
@@ -184,6 +189,7 @@ function NewsLetter() {
                 <a
                   href="#home"
                   onClick={(e) => handleLinkClick(e, "Blog")}
+                  id="home"
                   className="justify-start text-white text-[14px] font-medium font-['Hanken_Grotesk'] cursor-pointer"
                 >
                   Blog

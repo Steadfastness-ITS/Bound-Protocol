@@ -35,7 +35,7 @@ const Bound = () => {
       </nav>
 
       {/* 2. HERO CONTENT SECTION - Adjusted justification to push video to the edge */}
-      <section className="relative max-w-[1440px] mx-auto px-16 flex items-center pt-32 pb-40 overflow-hidden">
+      <section id="Home" className="relative max-w-[1440px] mx-auto px-16 flex items-center pt-32 pb-40 overflow-hidden">
         
          {/* Full Screen Video  */}
         <div className="absolute inset-0 z-0 w-full h-full flex justify-center items-center pointer-events-none">
@@ -75,28 +75,28 @@ const Bound = () => {
             Access better savings rates through an easy to use <br /> savings app powered by on-chain financial markets.
           </motion.p>
 
-          {/* Savings Rate Link/Text */}
-<motion.div 
-  initial={{ opacity: 1 }}
-  className="mb-12 text-[28px] sm:text-[25px] flex items-center flex-wrap"
-  style={{ fontFamily: "Inter, system-ui, sans-serif" }} // Inter is the closest match to the UI shape
->
-  <span className="text-[#6D5EED] font-semibold tracking-tight">
-    BOUND savings rate 
-  </span>
-  
-  <span className="relative ml-2 font-semibold">
-    {/* Text Gradient: Bright blue on left, Darker violet on right */}
-    <span 
-      style={{
-        background: "linear-gradient(90deg, #4facfe 0%, #6D5EED 100%)",
-        WebkitBackgroundClip: "text",
-        WebkitTextFillColor: "transparent",
-        display: "inline-block",
-      }}
-    >
-      18.83% APY
-    </span>
+                    {/* Savings Rate Link/Text */}
+          <motion.div 
+            initial={{ opacity: 1 }}
+            className="mb-12 text-[28px] sm:text-[25px] flex items-center flex-wrap"
+            style={{ fontFamily: "Inter, system-ui, sans-serif" }} // Inter is the closest match to the UI shape
+          >
+          <span className="text-[#6D5EED] font-semibold tracking-tight">
+            BOUND savings rate 
+          </span>
+          
+          <span className="relative ml-2 font-semibold">
+            {/* Text Gradient: Bright blue on left, Darker violet on right */}
+            <span 
+              style={{
+                background: "linear-gradient(90deg, #4facfe 0%, #6D5EED 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                display: "inline-block",
+              }}
+            >
+              18.83% APY
+            </span>
 
     {/* THE FIX: The Organic Tapered Underline */}
     <span 

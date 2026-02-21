@@ -41,7 +41,8 @@ function Newsletter() {
 
   return (
     <motion.section
-      className=" relative w-full bg-[#19174F] py-20 px-[5rem] mx-auto overflow-hidden"
+    id="contact-us"  
+    className=" relative w-full bg-[#19174F] py-20 px-[5rem] mx-auto overflow-hidden"
       {...textReveal}
     >
       {/* Background Images - Desktop Only */}

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 function mobTeam() {
   return (
-    <section className="w-full min-h-screen py-12 px-5 relative overflow-hidden bg-[#F7F6FE]">
+    <section id="leadership" className="w-full min-h-screen py-12 px-5 relative overflow-hidden bg-[#F7F6FE]">
       {/* Background image */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <img
