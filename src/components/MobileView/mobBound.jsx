@@ -56,35 +56,39 @@ const MobBound = () => {
       </header>
 
       {/* 2. MOBILE MENU OVERLAY & DRAWER */}
-      <div
-        className={`fixed inset-0 bg-black/50 z-[1000] transition-opacity duration-300 ${
-          isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
-        onClick={() => setIsMenuOpen(false)}
-        aria-hidden="true"
-      />
-
-      <nav
-        className={`fixed top-0 right-0 w-[280px] h-[500px] rounded-bl-2xl bg-white z-[1001] 
-        transform transition-transform duration-300 ease-in-out
-        shadow-[-10px_0_30px_rgba(0,0,0,0.1)]
-        ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}
-      >
-        <div className="flex flex-col pt-24 px-8 gap-2">
-          {navLinks.map((link) => (
-            <a
-              key={link}
-              href={`#${link.toLowerCase().replace(/\s+/g, '-')}`}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/50 z-[1000]"
               onClick={() => setIsMenuOpen(false)}
-              className="text-base font-medium uppercase no-underline transition-colors duration-300
-              py-4 border-b border-[#f0f0f0] last:border-b-0 text-[#4D4D4D] hover:text-[#6D5EED]"
+            />
+            <motion.nav
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed top-0 right-0 w-[280px] h-full bg-white z-[1001] shadow-xl flex flex-col pt-24 px-8"
             >
-              {link}
-            </a>
-          ))}
-        </div>
-      </nav>
-
+              {navLinks.map((link) => (
+                <a
+                  key={link.id}
+                  href={`#${link.id}`}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-base font-medium uppercase no-underline transition-colors duration-300
+                  py-4 border-b border-[#f0f0f0] last:border-b-0 text-[#4D4D4D] hover:text-[#6D5EED]"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </motion.nav>
+          </>
+        )}
+      </AnimatePresence>
+      
       {/* 3. HERO SECTION - Original Video Layout */}
       <section id="home" className="px-4 pt-24 pb-16">
         <div className="relative flex justify-center items-center mb-12">
