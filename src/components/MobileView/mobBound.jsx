@@ -6,12 +6,12 @@ const MobBound = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   const navLinks = [
-    "Home",
-    "Mission",
-    "Features",
-    "How It Works",
-    "Leadership",
-    "Contact Us",
+    { name: "Home", id: "home" },
+    { name: "Mission", id: "mission" },
+    { name: "Features", id: "features" },
+    { name: "How It Works", id: "how-it-works" },
+    { name: "Leadership", id: "leadership" },
+    { name: "Contact Us", id: "contact-us" },
   ];
 
   // Lock body scroll when menu is open
