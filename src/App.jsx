@@ -32,9 +32,6 @@ function App() {
   return (
   <div className="max-w-[1440px] mx-auto relative min-h-screen">
     <header className="relative z-[1000] bg-white">
-      {/* Uncomment these one by one ONLY after the screen stays visible.
-         If the screen turns white after uncommenting one, that's our culprit!
-      */}
       
       <DesktopLayout 
           navLinks={navLinks} 

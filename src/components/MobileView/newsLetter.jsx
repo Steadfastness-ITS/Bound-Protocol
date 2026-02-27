@@ -25,17 +25,17 @@ function NewsLetter() {
     const sectionId = getSectionId(link);
     if (sectionId) {
       const element = document.getElementById(sectionId);
-      if (element) {
-        const headerOffset = 100; // Offset for fixed header
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition =
-          elementPosition + window.pageYOffset - headerOffset;
+      // if (element) {
+      //   const headerOffset = 100; // Offset for fixed header
+      //   const elementPosition = element.getBoundingClientRect().top;
+      //   const offsetPosition =
+      //     elementPosition + window.pageYOffset - headerOffset;
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
-        });
-      }
+      //   window.scrollTo({
+      //     top: offsetPosition,
+      //     behavior: "smooth",
+      //   });s
+      // }
     }
   };
 

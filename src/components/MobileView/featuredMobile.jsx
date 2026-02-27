@@ -3,7 +3,7 @@ import { textReveal, staggerContainer, staggerItem, cardHover, imageReveal } fro
 
 function FeaturedMobile() {
   return (
-    <section id="features" className="w-full bg-[#F7F6FE] py-12 px-4 relative overflow-hidden flex flex-col items-center">
+    <section id="features" className="w-full bg-[#F7F6FE] py-12 px-4 relative overflow-hidden flex flex-col items-center min-h-screen scroll-mt-[70px]">
       {/* Background image */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <img
