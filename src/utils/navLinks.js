@@ -8,10 +8,10 @@ export const navLinks = [
 ];
 
 export const sectionMap = {
-  "Home": "home",
-  "Mission": "mission",
-  "Features": "features",
-  "How It Works": "how-it-works",
-  "Leadership": "leadership",
-  "Contact Us": "contact-us"
+  "Home": "mobBound",
+  "Mission": "aboutUs",
+  "Features": "featuredMobile",
+  "How It Works": "mobStep",
+  "Leadership": "mobTeam",
+  "Contact Us": "newsLetter"
 };

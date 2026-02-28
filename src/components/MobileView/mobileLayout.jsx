@@ -17,16 +17,16 @@ const MobileLayout = ({ navLinks, activeLink, isMenuOpen, handleLinkClick, close
         <MobBound />
       </section>
 
-      <section id="partners">
+      <section id="mobPartners">
         <MobPartners />
       </section>
 
       <section id="aboutUs">
-        <AboutUs />
+        <AboutUs  />
       </section>
 
       <section id="compare">
-        <Compare />
+        <Compare  />
       </section>
 
       <section id="featuredMobile">
@@ -34,7 +34,7 @@ const MobileLayout = ({ navLinks, activeLink, isMenuOpen, handleLinkClick, close
       </section>
 
       <section id="MobStep">
-        <MobStep />
+        <MobStep  />
       </section>
 
       <section id="mobBanner">
@@ -45,8 +45,8 @@ const MobileLayout = ({ navLinks, activeLink, isMenuOpen, handleLinkClick, close
         <MobTeam />
       </section>
 
-      <section id="newsletter">
-        <Newsletter />
+      <section id="newsLetter">
+        <Newsletter  />
       </section>
     </div>
   );

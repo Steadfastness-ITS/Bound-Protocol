@@ -26,8 +26,11 @@ const MobBound = ({ handleLinkClick }) => {
       document.body.style.overflow = "";
     };
   }, [isMenuOpen]);
-    useEffect(() => {
+
+  // Scroll event listener to accurately detect scroll position
+  useEffect(() => {
     const handleScroll = () => {
+      // Set to true if scrolled more than 20px
       if (window.scrollY > 20) {
         setIsScrolled(true);
       } else {
@@ -93,7 +96,7 @@ const MobBound = ({ handleLinkClick }) => {
               href={`#${link.toLowerCase().replace(/\s+/g, '-')}`}
               className="text-base font-medium uppercase no-underline transition-colors duration-300
               py-4 border-b border-[#f0f0f0] last:border-b-0 text-[#4D4D4D] hover:text-[#6D5EED]"
-              onClick={(e) => { handleLinkClick(e, link); setIsMenuOpen(false); }} // Close menu on link click
+              onClick={(e) => { handleLinkClick(e, link) }} 
             >
               {link}
             </a>
