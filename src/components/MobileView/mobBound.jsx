@@ -4,6 +4,7 @@ import { fadeInUp, slideInLeft, slideInRight, imageReveal, textReveal, buttonHov
 
 const MobBound = ({ handleLinkClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false); 
   
   const navLinks = [
     "HOME",
@@ -25,11 +26,26 @@ const MobBound = ({ handleLinkClick }) => {
       document.body.style.overflow = "";
     };
   }, [isMenuOpen]);
+    useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className="bg-white min-h-screen font-sans overflow-x-hidden relative">
       {/* 1. HEADER - Integrated Hamburger Logic */}
-      <header className="fixed top-0 left-0 w-full flex justify-between items-center px-4 py-3 bg-white z-[1002] h-[70px] border-b border-gray-50">
+      <header 
+      className={`fixed top-0 left-0 w-full flex justify-between items-center px-4 py-3 bg-white z-[1002] h-[70px] transition-all duration-300
+          ${isScrolled ? "border-b border-gray-100 shadow-sm" : "border-b-0"}
+        `}>
         <img 
           src="/boundprotocollogo.png" 
           alt="Bound Protocol" 
