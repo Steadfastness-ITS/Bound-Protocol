@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { fadeInUp, slideInLeft, slideInRight, imageReveal, textReveal, buttonHover } from "../../utils/animations";
 
-const MobBound = () => {
+const MobBound = ({ handleLinkClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   const navLinks = [
@@ -75,9 +75,9 @@ const MobBound = () => {
             <a
               key={link}
               href={`#${link.toLowerCase().replace(/\s+/g, '-')}`}
-              onClick={() => setIsMenuOpen(false)}
               className="text-base font-medium uppercase no-underline transition-colors duration-300
               py-4 border-b border-[#f0f0f0] last:border-b-0 text-[#4D4D4D] hover:text-[#6D5EED]"
+              onClick={(e) => { handleLinkClick(e, link); setIsMenuOpen(false); }} // Close menu on link click
             >
               {link}
             </a>

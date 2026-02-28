@@ -24,7 +24,7 @@
     font-family: "Hanken Grotesk", sans-serif;
     background: white;
     min-height: 100vh;
-    overflow-x: hidden;
+    /* overflow: hidden; */
     width: 100%;
   }
 }
@@ -114,4 +114,12 @@
   animation: scroll-right 30s linear infinite;
   will-change: transform;
   width: max-content;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* Internet Explorer and Edge */
+  scrollbar-width: none;  /* Firefox */
 }

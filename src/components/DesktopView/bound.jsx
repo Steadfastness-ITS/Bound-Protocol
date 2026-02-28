@@ -1,15 +1,37 @@
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import { fadeInUp, textReveal, buttonHover, imageReveal } from "../../utils/animations";
 
 const Bound = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
   const navLinks = [
     "HOME", "MISSION", "FEATURES", "HOW IT WORKS", "LEADERSHIP", "CONTACT US"
   ];
+    useEffect(() => {
+    const handleScroll = () => {
+      // If page scrolls more than 50px, set isScrolled to true
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <div className="hidden lg:block bg-white min-h-screen font-sans overflow-hidden">
+    <div className="hidden lg:block bg-white font-sans">
       {/* 1. DESKTOP NAVIGATION */}
-      <nav className="flex justify-between items-center px-16 py-8 max-w-[1440px] mx-auto">
+      <nav className={`
+          ${isScrolled 
+            ? "fixed top-0 left-0 right-0 z-[1001] bg-white/95 backdrop-blur-sm shadow-md" 
+            : "relative bg-white"
+          } 
+          flex justify-between items-center px-16 transition-all duration-300 max-w-[1440px] mx-auto
+          ${isScrolled ? "py-4" : "py-8"} // Shrink padding when scrolled
+        `}>
         <motion.div 
           initial={{ opacity: 1 }}
           className="flex items-center"
@@ -35,7 +57,7 @@ const Bound = () => {
       </nav>
 
       {/* 2. HERO CONTENT SECTION - Adjusted justification to push video to the edge */}
-      <section id="Home" className="relative max-w-[1440px] mx-auto px-16 flex items-center pt-32 pb-40 overflow-hidden">
+      <section id="home" className="relative max-w-[1440px] mx-auto px-16 flex items-center pt-40 pb-40 overflow-hidden">
         
          {/* Full Screen Video  */}
         <div className="absolute inset-0 z-0 w-full h-full flex justify-center items-center pointer-events-none">

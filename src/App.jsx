@@ -30,7 +30,7 @@ function App() {
   }, [isMenuOpen]);
 
   return (
-  <div className="max-w-[1440px] mx-auto relative min-h-screen">
+  <div className="max-w-[1440px] mx-auto relative min-h-screen overflow-y-scroll hide-scrollbar">
     <header className="relative z-[1000] bg-white">
       
       <DesktopLayout 
