@@ -107,7 +107,7 @@ const MobBound = ({ handleLinkClick }) => {
       {/* 3. HERO SECTION - Original Video Layout */}
       {/* Added id="home" to catch the Home link click */}
       <section id="home" className="px-4 pt-24 pb-16 overflow-hidden">
-        <div className="relative flex justify-center items-center mb-12 overflow-hidden rounded-xl">
+        <div className="relative flex justify-center w-full items-center mb-12 overflow-hidden rounded-xl">
           <video
             src="/herovideomobile.mp4"
             poster="/backgroundmobile.png"
@@ -115,7 +115,7 @@ const MobBound = ({ handleLinkClick }) => {
             loop
             muted
             playsInline
-            className="block lg:hidden h-[340px] w-full object-contain scale-110"
+            className="block lg:hidden h-[340px] max-w-full object-contain scale-110"
             style={{ border: "none", outline: "none" }}
           />
         </div>
