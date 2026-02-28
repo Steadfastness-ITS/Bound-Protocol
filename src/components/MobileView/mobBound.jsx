@@ -115,7 +115,7 @@ const MobBound = ({ handleLinkClick }) => {
             loop
             muted
             playsInline
-            className="block lg:hidden h-[340px] w-full object-cover scale-110"
+            className="block lg:hidden h-[340px] w-full object-contain scale-110"
             style={{ border: "none", outline: "none" }}
           />
         </div>
