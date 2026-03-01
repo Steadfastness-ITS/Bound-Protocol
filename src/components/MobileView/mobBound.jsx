@@ -17,15 +17,14 @@ const MobBound = ({ handleLinkClick }) => {
 
   // Lock body scroll when menu is open
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflowX = "hidden";
-    };
-  }, [isMenuOpen]);
+  if (isMenuOpen) {
+    document.body.style.overflow = "hidden";
+  } else {
+    // This restores the natural scroll when menu is closed
+    document.body.style.overflow = "unset"; 
+    document.body.style.overflowX = "hidden"; // Keep our horizontal fix
+  }
+}, [isMenuOpen]);
 
   // Scroll event listener to accurately detect scroll position
   useEffect(() => {

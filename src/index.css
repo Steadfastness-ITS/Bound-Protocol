@@ -15,7 +15,9 @@
   scroll-behavior: smooth;
   overflow-x: hidden; /* Prevent horizontal scroll */
   width: 100%;
-  /* position: relative; */
+  margin: 0;
+  padding: 0;
+  position: relative;
 }
 
   section, [id] {
@@ -29,15 +31,14 @@
   width: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
   overflow-y: auto;
-  overflow-x: hidden; /* Double protection */
   position: relative;
   -webkit-overflow-scrolling: touch; /* Ensures smooth momentum scrolling on iOS */
 }
   #root {
   width: 100%;
   overflow-x: hidden;
- 
 }
 }
 
