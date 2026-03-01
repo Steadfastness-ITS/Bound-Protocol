@@ -12,21 +12,32 @@
   }
 
   html {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-  }
+  scroll-behavior: smooth;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  width: 100%;
+  position: relative;
+}
 
   section, [id] {
     scroll-margin-top: 80px;
   }
 
   body {
-    font-family: "Hanken Grotesk", sans-serif;
-    background: white;
-    min-height: 100vh;
-    /* overflow: hidden; */
-    width: 100%;
-  }
+  font-family: "Hanken Grotesk", sans-serif;
+  background: white;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Double protection */
+  position: relative;
+  -webkit-overflow-scrolling: touch; /* Ensures smooth momentum scrolling on iOS */
+}
+  #root {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
 }
 
 @layer components {
