@@ -23,7 +23,7 @@ const MobBound = ({ handleLinkClick }) => {
       document.body.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflowX = "hidden";
     };
   }, [isMenuOpen]);
 
