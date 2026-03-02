@@ -15,17 +15,17 @@ const MobBound = ({ handleLinkClick }) => {
     "CONTACT US",
   ];
 
-  // FIX: Manage overflow via CSS classes, not directly styling body
-  // useEffect(() => {
-  //   if (isMenuOpen) {
-  //     document.body.style.overflow = "hidden";
-  //   } else {
-  //     document.body.style.overflow = ""; // Revert to CSS default
-  //   }
-  //   return () => {
-  //     document.body.style.overflow = "";
-  //   };
-  // }, [isMenuOpen]);
+  // Updated useEffect in mobBound.jsx
+useEffect(() => {
+  // Explicitly force body to be scrollable
+  document.body.style.overflowY = "auto";
+  document.body.style.overflowX = "hidden";
+  
+  // If the menu is open, it's okay to lock it, but ensure we unlock it later
+  if (isMenuOpen) {
+    document.body.style.overflowY = "hidden";
+  }
+}, [isMenuOpen]);
 
   // Scroll event listener to accurately detect scroll position
   useEffect(() => {
