@@ -33,7 +33,7 @@ function FeaturedMobile() {
         {/* Header Section */}
         <div className="flex flex-col items-center gap-4 mb-8 lg:mb-16">
           <h2
-            className="text-[24px] sm:text-[28px] md:text-[32px] lg:text-[48px] xl:text-[57px]
+            className="text-[32px] sm:text-[28px] md:text-[32px] lg:text-[48px] xl:text-[57px]
               font-semibold leading-[1.2] text-center
               text-[#1a1a1a] tracking-[-0.5px] lg:tracking-[-1px] px-2"
           >
@@ -49,31 +49,66 @@ function FeaturedMobile() {
         </div>
 
         {/* Cards Grid - Mobile: Single column, Desktop: 2x2 */}
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-5 lg:gap-8">
+        {/* Updated gap-4 to gap-y-6 to provide vertical space on mobile */}
+        <div className="grid grid-cols-1 gap-y-6 gap-x-4 lg:grid-cols-5 lg:gap-8">
+          
           {/* Card 1: Where Your Savings Are Invested */}
-          <div className="bg-white rounded-2xl lg:rounded-3xl shadow-sm border border-[#E5EAF2] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] lg:col-span-2">
-            <div className=" h-60 p-4 bg-white rounded-xl shadow-[0px_7.705320835113525px_9.631650924682617px_0px_rgba(96,51,255,0.20)] outline outline-1 outline-offset-[-0.96px] inline-flex flex-col justify-start items-center gap-5 overflow-hidden">
+          <div className="bg-white rounded-2xl lg:rounded-3xl shadow-sm border border-[#E5EAF2] p-6 lg:col-span-2 mb-2 lg:mb-0">
+            <div className="flex flex-col justify-start items-center gap-6 overflow-hidden">
+              
+              {/* Title and Description */}
               <div className="self-stretch flex flex-col justify-start items-center gap-2">
-                <div className="self-stretch text-center justify-start text-zinc-800 text-base font-semibold font-['Hanken_Grotesk'] leading-5">
+                <h3 className="self-stretch text-center text-zinc-950 text-base font-semibold font-['Hanken_Grotesk'] leading-7">
                   Where Your Savings Are Invested
-                </div>
-                <div className="self-stretch text-center justify-start text-neutral-400 text-xs font-normal font-['Hanken_Grotesk'] leading-4">
+                </h3>
+                <p className="self-stretch text-center text-neutral-400 text-xs font-normal font-['Hanken_Grotesk'] leading-5 max-w-[100%] mx-auto">
                   A diversified basket of top tier yield-bearing assets,
                   selected for maturity, scale, and institutional adoption,
                   designed to deliver consistent, stable returns.
-                </div>
+                </p>
               </div>
-              <div className="self-stretch flex-1 relative">
-                <img
-                  className="w-80 h-28 left-0 top-[-11px] absolute"
-                  src="/Content 1.svg"
-                />
+              
+              {/* The Two Cards Container */}
+              <div className="flex flex-row gap-4 w-full justify-between">
+                
+                {/* Card a: Yield Bearing Stablecoins */}
+                <div className="relative w-[50%] h-32 px-3 py-4 bg-gradient-to-b from-white to-indigo-100 rounded-[20px] border-[1.5px] border-violet-800 overflow-hidden shadow-inner">
+                  <div className="absolute top-4 left-0 right-0 text-center text-zinc-950 text-[11px] font-semibold font-['Hanken_Grotesk'] leading-4">
+                    Yield Bearing Stablecoins
+                  </div>
+                  
+                  <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex items-center justify-center -space-x-3">
+                    <img className="w-9 h-9 rounded-full ring-2 ring-white" src="/aUSDC.svg" alt="aUSDC" />
+                    <img className="w-9 h-9 rounded-full ring-2 ring-white" src="/sUSDS_Coin.svg" alt="sUSDS" />
+                    <img className="w-9 h-9 rounded-full ring-2 ring-white" src="usdcsign.svg" alt="USDC" />
+                  </div>
+                  
+                  {/* Background Arc */}
+              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-32 h-16 top-10 rounded-t-full md:w-40 md:h-40 md:left-[250px] md:top-[51px] border-[3px] border-b-0 border-indigo-200/50" />
+                </div>
+
+                {/* Card b: Real World Assets */}
+                <div className="relative w-[50%] h-30 px-3 py-4 bg-gradient-to-b from-white to-indigo-100 rounded-[20px] border-[1.5px] border-violet-800 overflow-hidden shadow-inner">
+                  <div className="absolute top-4 left-0 right-0 text-center text-zinc-950 text-[11px] font-semibold font-['Hanken_Grotesk'] leading-4">
+                    Real World Assets
+                  </div>
+                  
+                  {/* SVG Icons */}
+                  <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex items-center justify-center -space-x-3">
+                    <img className="w-9 h-9 rounded-full ring-2 ring-white" src="/sUSDS_Coin1.svg" alt="sUSDS" />
+                    <img className="w-9 h-9 rounded-full ring-2 ring-white" src="/ondo.svg" alt="Ondo" />
+                  </div>
+                  
+                  {/* Background Arc */}
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-32 h-16 top-10 rounded-t-full md:w-40 md:h-40 md:left-[250px] md:top-[51px] border-[3px] border-b-0 border-indigo-200/50" />
+                </div>
               </div>
             </div>
           </div>
-
+          
           {/* Card 2: Why You Earn Better Rates with BOUND */}
-          <div className="bg-white rounded-2xl lg:rounded-3xl shadow-sm border border-[#E5EAF2] lg:col-span-3">
+          {/* Added mb-2 for extra spacing */}
+          <div className="bg-white rounded-2xl lg:rounded-3xl shadow-sm border border-[#E5EAF2] lg:col-span-3 mb-2 lg:mb-0">
             <div className="h-60 p-4 relative bg-white rounded-xl shadow-[0px_7.705320835113525px_9.631650924682617px_0px_rgba(96,51,255,0.20)] outline outline-1 outline-offset-[-0.96px] inline-flex flex-col justify-start items-center gap-5 overflow-hidden">
               <div className="self-stretch flex flex-col justify-start items-center gap-2">
                 <div className="self-stretch text-center justify-start text-zinc-800 text-base font-semibold font-['Hanken_Grotesk'] leading-5">
@@ -133,8 +168,7 @@ function FeaturedMobile() {
                     </div>
                   </div>
                   <img className="w-14 h-7" src="/rate3.svg" alt="" />
-                  {/* <div className="w-14 h-7 bg-gradient-to-b from-violet-600/20 to-violet-600/0" />
-                  <div className="w-14 h-6 rounded-[0.71px] outline outline-[1.41px] outline-offset-[-0.71px] outline-indigo-950" /> */}
+                  
                   <div className="inline-flex flex-col justify-center items-end">
                     <div className="justify-start text-zinc-800 text-xs font-normal font-['Hanken_Grotesk'] leading-4">
                       $429,850.15{" "}
@@ -149,7 +183,8 @@ function FeaturedMobile() {
           </div>
 
           {/* Card 3: How Your Savings Are Managed */}
-          <div className="bg-white rounded-2xl lg:rounded-3xl shadow-sm border border-[#E5EAF2] lg:col-span-2">
+          {/* Added mb-2 for extra spacing */}
+          <div className="bg-white rounded-2xl lg:rounded-3xl shadow-sm border border-[#E5EAF2] lg:col-span-2 mb-2 lg:mb-0">
             <div className=" h-60 p-4 relative bg-white rounded-xl shadow-[0px_2.7417476177215576px_2.7417476177215576px_0px_rgba(0,0,0,0.25)] outline outline-[0.69px] outline-offset-[-0.69px] inline-flex flex-col justify-start items-center gap-5 overflow-hidden">
               <div className="self-stretch flex flex-col justify-start items-start gap-2">
                 <div className="self-stretch text-center justify-start text-zinc-800 text-base font-semibold font-['Hanken_Grotesk'] leading-5">
@@ -162,11 +197,13 @@ function FeaturedMobile() {
                 </div>
               </div>
               <div className="w-80 h-52 left-[16px] top-[117px] absolute bg-white rounded-2xl shadow-[0px_-2.8533332347869873px_14.266666412353516px_0px_rgba(19,13,80,0.15)] outline outline-[0.71px] outline-offset-[-0.71px] outline-indigo-950 overflow-hidden">
+                {/* SVG Graph Lines */}
                 <div className="w-96 h-0 left-[-73px] top-[32px] absolute outline outline-[0.24px] outline-offset-[-0.12px] outline-indigo-100" />
                 <div className="w-96 h-0 left-[-73px] top-[69px] absolute outline outline-[0.24px] outline-offset-[-0.12px] outline-indigo-100" />
                 <div className="w-96 h-0 left-[-73px] top-[107px] absolute outline outline-[0.24px] outline-offset-[-0.12px] outline-indigo-100" />
                 <div className="w-96 h-0 left-[-73px] top-[144px] absolute outline outline-[0.24px] outline-offset-[-0.12px] outline-indigo-100" />
                 <div className="w-96 h-0 left-[-73px] top-[182px] absolute outline outline-[0.24px] outline-offset-[-0.12px] outline-indigo-100" />
+                {/* Bar Graph Elements */}
                 <div className="w-0 h-8 left-[315px] top-[42px] absolute outline outline-[0.62px] outline-offset-[-0.31px] outline-indigo-300" />
                 <div className="w-0 h-3.5 left-[315px] top-[51px] absolute outline outline-[4.96px] outline-offset-[-2.48px] outline-indigo-300" />
                 <div className="w-0 h-10 left-[302px] top-[47px] absolute outline outline-[0.62px] outline-offset-[-0.31px] outline-indigo-950" />
@@ -235,6 +272,7 @@ function FeaturedMobile() {
           </div>
 
           {/* Card 4: How Your Funds Are Protected */}
+          {/* Maintained lg:col-span-3 */}
           <div className="bg-white rounded-2xl lg:rounded-3xl shadow-sm border border-[#E5EAF2] shadow-[0px_8px_60px_0px_rgba(19,13,80,0.30)] outline outline-2 outline-offset-[-2px] outline-[#130d50] lg:col-span-3">
             <div className="h-60 p-4 relative bg-gradient-to-b from-white to-indigo-100 rounded-xl shadow-[0px_4px_20px_0px_rgba(19,13,80,0.25)] outline outline-[0.69px] outline-offset-[-0.69px] outline-indigo-950 inline-flex flex-col justify-start items-center gap-5 overflow-hidden">
               <div className="self-stretch flex flex-col justify-start items-start gap-2">
@@ -250,6 +288,7 @@ function FeaturedMobile() {
                 </div>
               </div>
               <div className="w-80 h-24 left-[16px] top-[131px] absolute">
+                {/* Visual Graph Elements */}
                 <div className="w-1 h-28 left-[2.46px] top-[-5.41px] absolute bg-white" />
                 <div className="w-1 h-28 left-[54.57px] top-[24.09px] absolute bg-white" />
                 <div className="w-1 h-28 left-[111.10px] top-[15.73px] absolute bg-white" />
@@ -261,6 +300,7 @@ function FeaturedMobile() {
                 <div className="w-1 h-28 left-[86.52px] top-[76.69px] absolute bg-white" />
                 <div className="w-1 h-28 left-[27.53px] top-[73.74px] absolute bg-white" />
                 <div className="w-1 h-28 left-[307.73px] top-[14.26px] absolute bg-white" />
+                {/* Circle Icons */}
                 <div className="p-2 left-[241px] top-[3px] absolute bg-white rounded-[999px] shadow-[0px_4px_20px_0px_rgba(19,13,80,0.25)] inline-flex justify-center items-center gap-1">
                   <div className="w-12 h-12 relative">
                     <div className="w-14 h-14 left-[-3px] top-[-3px] absolute bg-indigo-950" style={{ borderRadius: '50%' }} />
@@ -285,7 +325,6 @@ function FeaturedMobile() {
                     <img
                       className="w-8 h-7 left-[9.41px] top-[10.30px] absolute"
                       src="/new-file2.svg"
-                      
                     />
                   </div>
                 </div>
