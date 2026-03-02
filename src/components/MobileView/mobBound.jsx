@@ -17,14 +17,15 @@ const MobBound = ({ handleLinkClick }) => {
 
   // Lock body scroll when menu is open
   useEffect(() => {
-  if (isMenuOpen) {
-    document.body.style.overflow = "hidden";
-  } else {
-    // This restores the natural scroll when menu is closed
-    document.body.style.overflow = "unset"; 
-    document.body.style.overflowX = "hidden"; // Keep our horizontal fix
-  }
-}, [isMenuOpen]);
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
 
   // Scroll event listener to accurately detect scroll position
   useEffect(() => {
@@ -105,7 +106,7 @@ const MobBound = ({ handleLinkClick }) => {
 
       {/* 3. HERO SECTION - Original Video Layout */}
       {/* Added id="home" to catch the Home link click */}
-      <section id="home" className="px-4 pt-24 pb-16 overflow-hidden">
+      <section id="home" className="px-4 pt-24 pb-16 w-full overflow-hidden">
         <div className="relative flex justify-center w-full items-center mb-12 overflow-hidden rounded-xl">
           <video
             src="/herovideomobile.mp4"
@@ -114,7 +115,7 @@ const MobBound = ({ handleLinkClick }) => {
             loop
             muted
             playsInline
-            className="block lg:hidden h-[340px] max-w-full object-contain scale-110"
+            className="block lg:hidden h-[340px] max-w-full object-cover w-full"
             style={{ border: "none", outline: "none" }}
           />
         </div>

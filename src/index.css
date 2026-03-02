@@ -13,11 +13,10 @@
 
   html {
   scroll-behavior: smooth;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-x: hidden; 
+  overflow-y: auto;
   width: 100%;
-  margin: 0;
-  padding: 0;
-  position: relative;
+  height: 100%;
 }
 
   section, [id] {
@@ -29,12 +28,10 @@
   background: white;
   min-height: 100vh;
   width: 100%;
-  margin: 0;
-  padding: 0;
   overflow-x: hidden;
   overflow-y: auto;
-  position: relative;
-  -webkit-overflow-scrolling: touch; /* Ensures smooth momentum scrolling on iOS */
+  /* position: relative; */
+  -webkit-overflow-scrolling: touch;
 }
   #root {
   width: 100%;
