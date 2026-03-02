@@ -30,7 +30,7 @@ function App() {
 
   return (
     // INTEGRATED: Changed h-auto to min-h-dvh for iOS dynamic height
-    <div className="max-w-[1440px] mx-auto relative min-h-dvh">
+    <div className="max-w-[1440px] mx-auto relative min-h-dvh overflow-y-visible">
       <header className="relative z-[1000] bg-white">
         
         <DesktopLayout 
