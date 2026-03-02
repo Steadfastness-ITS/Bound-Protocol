@@ -15,17 +15,17 @@ const MobBound = ({ handleLinkClick }) => {
     "CONTACT US",
   ];
 
-  // Lock body scroll when menu is open
-  // useEffect(() => {
-  //   if (isMenuOpen) {
-  //     document.body.style.overflow = "hidden";
-  //   } else {
-  //     document.body.style.overflow = "auto";
-  //   }
-  //   return () => {
-  //     document.body.style.overflow = "auto";
-  //   };
-  // }, [isMenuOpen]);
+  // FIX: Manage overflow via CSS classes, not directly styling body
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = ""; // Revert to CSS default
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
 
   // Scroll event listener to accurately detect scroll position
   useEffect(() => {
@@ -43,10 +43,10 @@ const MobBound = ({ handleLinkClick }) => {
   }, []);
 
   return (
-    <div className="bg-white min-h-screen h-full font-sans overflow-x-hidden overflow-y-auto relative">
+    <div className="bg-white min-h-screen font-sans overflow-x-hidden relative">
       {/* 1. HEADER - Integrated Hamburger Logic */}
       <header 
-      className={`fixed top-0 left-0 w-full flex justify-between items-center px-4 py-3 bg-white z-[1002] h-[70px] transition-all duration-300
+      className={`fixed top-0 left-0 w-full flex justify-between items-center px-4 py-3 bg-white z-[1002] h-[70px]
           ${isScrolled ? "border-b border-gray-100 shadow-sm" : "border-b-0"}
         `}>
         <img 
