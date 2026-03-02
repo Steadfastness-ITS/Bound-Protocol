@@ -28,10 +28,10 @@ function App() {
 
   const closeMenu = () => setIsMenuOpen(false);
 
-  useEffect(() => {
-    document.body.style.overflow = isMenuOpen ? "hidden" : "";
-    return () => (document.body.style.overflow = "");
-  }, [isMenuOpen]);
+  // useEffect(() => {
+  //   document.body.style.overflow = isMenuOpen ? "hidden" : "";
+  //   return () => (document.body.style.overflow = "");
+  // }, [isMenuOpen]);
 
   return (
     <div className="max-w-[1440px] mx-auto relative min-h-screen">
