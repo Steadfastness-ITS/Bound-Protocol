@@ -34,7 +34,7 @@ function App() {
   // }, [isMenuOpen]);
 
   return (
-    <div className="max-w-[1440px] mx-auto relative">
+    <div className="max-w-[1440px] mx-auto relative h-auto">
       <header className="relative z-[1000] bg-white">
         
         <DesktopLayout 
