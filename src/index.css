@@ -131,3 +131,14 @@
   -ms-overflow-style: none;  /* Internet Explorer and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+/* FORCE SCROLLING - Put at the bottom of index.css */
+body {
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100vh !important;
+}
+
+html {
+    overflow-y: auto !important;
+    height: auto !important;
+}
