@@ -78,9 +78,9 @@ function FeaturedMobile() {
                   </div>
                   
                   <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex items-center justify-center -space-x-3">
-                    <img className="w-9 h-9 rounded-full ring-2 ring-white" src="/aUSDC.svg" alt="aUSDC" />
-                    <img className="w-9 h-9 rounded-full ring-2 ring-white" src="/sUSDS_Coin.svg" alt="sUSDS" />
-                    <img className="w-9 h-9 rounded-full ring-2 ring-white" src="usdcsign.svg" alt="USDC" />
+                    <img className="w-9 h-9 rounded-full" src="/aUSDC.svg" alt="aUSDC" />
+                    <img className="w-9 h-9 rounded-full" src="/sUSDS_Coin.svg" alt="sUSDS" />
+                    <img className="w-9 h-9 rounded-full" src="usdcsign.svg" alt="USDC" />
                   </div>
                   
                   {/* Background Arc */}
@@ -95,8 +95,8 @@ function FeaturedMobile() {
                   
                   {/* SVG Icons */}
                   <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex items-center justify-center -space-x-3">
-                    <img className="w-9 h-9 rounded-full ring-2 ring-white" src="/sUSDS_Coin1.svg" alt="sUSDS" />
-                    <img className="w-9 h-9 rounded-full ring-2 ring-white" src="/ondo.svg" alt="Ondo" />
+                    <img className="w-9 h-9 rounded-full" src="/sUSDS_Coin1.svg" alt="sUSDS" />
+                    <img className="w-9 h-9 rounded-full" src="/ondo.svg" alt="Ondo" />
                   </div>
                   
                   {/* Background Arc */}
