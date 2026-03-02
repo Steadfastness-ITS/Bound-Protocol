@@ -16,16 +16,16 @@ const MobBound = ({ handleLinkClick }) => {
   ];
 
   // FIX: Manage overflow via CSS classes, not directly styling body
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = ""; // Revert to CSS default
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isMenuOpen]);
+  // useEffect(() => {
+  //   if (isMenuOpen) {
+  //     document.body.style.overflow = "hidden";
+  //   } else {
+  //     document.body.style.overflow = ""; // Revert to CSS default
+  //   }
+  //   return () => {
+  //     document.body.style.overflow = "";
+  //   };
+  // }, [isMenuOpen]);
 
   // Scroll event listener to accurately detect scroll position
   useEffect(() => {
