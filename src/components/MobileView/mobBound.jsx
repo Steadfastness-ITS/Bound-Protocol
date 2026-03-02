@@ -45,7 +45,7 @@ useEffect(() => {
   }, []);
 
   return (
-    <div className="bg-white min-h-screen font-sans overflow-x-hidden relative">
+    <div className="bg-white h-auto font-sans overflow-x-hidden relative">
       {/* 1. HEADER - Integrated Hamburger Logic */}
       <header 
       className={`fixed top-0 left-0 w-full flex justify-between items-center px-4 py-3 bg-white z-[1002] h-[70px]

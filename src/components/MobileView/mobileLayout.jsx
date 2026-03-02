@@ -11,7 +11,7 @@ import Newsletter from "./newsLetter";
 
 const MobileLayout = ({ navLinks, activeLink, isMenuOpen, handleLinkClick, closeMenu, getSectionId }) => {
   return (
-    <div className="lg:hidden min-h-full overflow-y-auto">
+    <div className="lg:hidden"> 
       
       <section id="mobBound">
         <MobBound />
