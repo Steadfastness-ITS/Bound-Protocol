@@ -20,6 +20,8 @@ useEffect(() => {
   // Explicitly force body to be scrollable
   document.body.style.overflowY = "auto";
   document.body.style.overflowX = "hidden";
+  document.documentElement.style.overflowY = "auto";
+  document.documentElement.style.overflowX = "hidden";
   
   // If the menu is open, it's okay to lock it, but ensure we unlock it later
   if (isMenuOpen) {
