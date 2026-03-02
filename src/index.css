@@ -133,3 +133,9 @@
   -ms-overflow-style: none;  /* Internet Explorer and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+/* EMERGENCY SCROLL FIX - Put at the bottom of index.css */
+html, body, #root, div {                
+    overflow-y: auto !important;                
+    height: auto !important;                
+    min-height: auto !important;                
+}
