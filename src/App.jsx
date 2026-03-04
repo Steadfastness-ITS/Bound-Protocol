@@ -19,20 +19,25 @@ function App() {
     
     if (el) {
       window.scrollTo({
-      top: el.offsetTop, 
-      behavior: "smooth"
-    });
+        top: el.offsetTop, 
+        behavior: "smooth"
+      });
     }
-    setIsMenuOpen(false);
   };
 
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    // INTEGRATED: Changed h-auto to min-h-dvh for iOS dynamic height
-    <div className="max-w-[1440px] mx-auto relative h-auto overflow-y-visible">
+    // 1. Root container MUST be block and auto height
+    <div className="max-w-[1440px] mx-auto block h-auto">
+      
+      {/* 2. Remove the layouts from INSIDE the header tag */}
       <header className="relative z-[1000] bg-white">
-        
+          {/* If your Layouts contain the actual page sections, 
+              they belong BELOW the header, not inside it. */}
+      </header>
+
+      <main className="relative">
         <DesktopLayout 
             navLinks={navLinks} 
             activeLink={activeLink} 
@@ -48,7 +53,7 @@ function App() {
             closeMenu={closeMenu}
             getSectionId={getSectionId}
         />
-      </header>
+      </main>
     </div>
   );
 }
