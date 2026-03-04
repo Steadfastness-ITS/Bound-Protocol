@@ -139,15 +139,7 @@ html, body, #root, div {
     height: auto !important;                
     min-height: auto !important;                
 }
-/* ADD TO BOTTOM OF index.css */
-* {
-  outline: 1px solid red !important;
-}
 
-html, body {
-  border: 5px solid blue !important;
-  background: rgba(0, 0, 255, 0.1) !important;
-}
 /* FINAL EMERGENCY OVERRIDE - Add to bottom of index.css */
 html, body {
   overflow-y: scroll !important; /* Forces a scrollbar area */
