@@ -133,29 +133,31 @@
   -ms-overflow-style: none;  /* Internet Explorer and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+
 /* EMERGENCY SCROLL FIX - Put at the bottom of index.css */
-html, body, #root, div {                
+/* html, body, #root, div {                
     overflow-y: auto !important;                  
     height: auto !important;                
     min-height: auto !important;                
-}
+} */
 
 /* FINAL EMERGENCY OVERRIDE - Add to bottom of index.css */
-html, body {
-  overflow-y: scroll !important; /* Forces a scrollbar area */
+/* html, body {
+  overflow-y: scroll !important; 
   height: auto !important;
   min-height: 100% !important;
-  -webkit-overflow-scrolling: touch !important; /* Enables momentum scroll */
-  position: static !important; /* Ensures body isn't accidentally 'fixed' */
+  -webkit-overflow-scrolling: touch !important; 
+  position: static !important; 
 }
 
 #root {
   overflow: visible !important;
   height: auto !important;
-}
+} */
 
 /* This targets the specific container that usually breaks iOS */
-.lg\:hidden {
+/* .lg\:hidden {
   overflow: visible !important;
   height: auto !important;
-}
+} */

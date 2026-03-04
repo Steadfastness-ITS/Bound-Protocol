@@ -19,25 +19,20 @@ function App() {
     
     if (el) {
       window.scrollTo({
-        top: el.offsetTop, 
-        behavior: "smooth"
-      });
+      top: el.offsetTop, 
+      behavior: "smooth"
+    });
     }
+    setIsMenuOpen(false);
   };
 
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    // 1. Root container MUST be block and auto height
-    <div className="max-w-[1440px] mx-auto block h-auto">
-      
-      {/* 2. Remove the layouts from INSIDE the header tag */}
+    // INTEGRATED: Changed h-auto to min-h-dvh for iOS dynamic height
+    <div className="max-w-[1440px] mx-auto relative h-auto overflow-y-visible">
       <header className="relative z-[1000] bg-white">
-          {/* If your Layouts contain the actual page sections, 
-              they belong BELOW the header, not inside it. */}
-      </header>
-
-      <main className="relative">
+        
         <DesktopLayout 
             navLinks={navLinks} 
             activeLink={activeLink} 
@@ -53,9 +48,72 @@ function App() {
             closeMenu={closeMenu}
             getSectionId={getSectionId}
         />
-      </main>
+      </header>
     </div>
   );
 }
 
 export default App;
+
+
+// import { useState, useEffect } from "react";
+// import DesktopLayout from "./components/DesktopView/desktopLayout";
+// import MobileLayout from "./components/MobileView/mobileLayout";
+// import { navLinks, sectionMap } from "./utils/navLinks";
+
+// function App() {
+//   const [isMenuOpen, setIsMenuOpen] = useState(false);
+//   const [activeLink, setActiveLink] = useState("Home");
+
+//   const getSectionId = (link) => sectionMap[link] || "";
+
+//   const handleLinkClick = (e, link) => {
+//     e.preventDefault();
+//     setActiveLink(link);
+//     setIsMenuOpen(false);
+    
+//     const id = getSectionId(link);
+//     const el = document.getElementById(id);
+    
+//     if (el) {
+//       window.scrollTo({
+//         top: el.offsetTop, 
+//         behavior: "smooth"
+//       });
+//     }
+//   };
+
+//   const closeMenu = () => setIsMenuOpen(false);
+
+//   return (
+//     // 1. Root container MUST be block and auto height
+//     <div className="max-w-[1440px] mx-auto block h-auto">
+      
+//       {/* 2. Remove the layouts from INSIDE the header tag */}
+//       <header className="relative z-[1000] bg-white">
+//           {/* If your Layouts contain the actual page sections, 
+//               they belong BELOW the header, not inside it. */}
+//       </header>
+
+//       <main className="relative">
+//         <DesktopLayout 
+//             navLinks={navLinks} 
+//             activeLink={activeLink} 
+//             handleLinkClick={handleLinkClick} 
+//             getSectionId={getSectionId} 
+//         />
+
+//         <MobileLayout
+//             navLinks={navLinks}
+//             activeLink={activeLink}
+//             isMenuOpen={isMenuOpen}
+//             handleLinkClick={handleLinkClick}
+//             closeMenu={closeMenu}
+//             getSectionId={getSectionId}
+//         />
+//       </main>
+//     </div>
+//   );
+// }
+
+// export default App;
