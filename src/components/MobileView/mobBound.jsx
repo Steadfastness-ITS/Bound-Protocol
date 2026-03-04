@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { fadeInUp, slideInLeft, slideInRight, imageReveal, textReveal, buttonHover } from "../../utils/animations";
+import { fadeInUp, textReveal, buttonHover } from "../../utils/animations";
 
 const MobBound = ({ handleLinkClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false); 
-  
+  const [isScrolled, setIsScrolled] = useState(false);
+
   const navLinks = [
     "HOME",
     "MISSION",
@@ -15,24 +15,38 @@ const MobBound = ({ handleLinkClick }) => {
     "CONTACT US",
   ];
 
-  // Updated useEffect in mobBound.jsx
-useEffect(() => {
-  // Explicitly force body to be scrollable
-  document.body.style.overflowY = "auto";
-  document.body.style.overflowX = "hidden";
-  document.documentElement.style.overflowY = "auto";
-  document.documentElement.style.overflowX = "hidden";
-  
-  // If the menu is open, it's okay to lock it, but ensure we unlock it later
-  if (isMenuOpen) {
-    document.body.style.overflowY = "hidden";
-  }
-}, [isMenuOpen]);
+  // 1. INTEGRATED IOS SCROLL LOGIC
+  useEffect(() => {
+    const adjustScroll = () => {
+      if (isMenuOpen) {
+        // When menu is open, lock the background to prevent "shaky" bounce
+        document.body.style.overflow = "hidden";
+        document.body.style.height = "100dvh";
+        document.body.style.position = "fixed";
+        document.body.style.width = "100%";
+      } else {
+        // When menu is closed, force absolute scroll freedom for iOS
+        document.body.style.overflow = "auto";
+        document.body.style.overflowX = "hidden";
+        document.body.style.height = "auto";
+        document.body.style.position = "";
+        document.body.style.width = "";
+        document.documentElement.style.overflowY = "auto";
+        document.documentElement.style.height = "auto";
+      }
+    };
 
-  // Scroll event listener to accurately detect scroll position
+    adjustScroll();
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+    };
+  }, [isMenuOpen]);
+
+  // 2. SCROLL POSITION DETECTOR
   useEffect(() => {
     const handleScroll = () => {
-      // Set to true if scrolled more than 20px
       if (window.scrollY > 20) {
         setIsScrolled(true);
       } else {
@@ -40,27 +54,27 @@ useEffect(() => {
       }
     };
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <div className="bg-white h-auto font-sans overflow-x-hidden relative">
-      {/* 1. HEADER - Integrated Hamburger Logic */}
-      <header 
-      className={`fixed top-0 left-0 w-full flex justify-between items-center px-4 py-3 bg-white z-[1002] h-[70px]
+      {/* HEADER */}
+      <header
+        className={`fixed top-0 left-0 w-full flex justify-between items-center px-4 py-3 bg-white z-[1002] h-[70px] transition-all
           ${isScrolled ? "border-b border-gray-100 shadow-sm" : "border-b-0"}
-        `}>
-        <img 
-          src="/boundprotocollogo.png" 
-          alt="Bound Protocol" 
-          className="h-8 w-auto" 
+        `}
+      >
+        <img
+          src="/boundprotocollogo.png"
+          alt="Bound Protocol"
+          className="h-8 w-auto"
         />
-        
+
         {/* Animated Hamburger Icon */}
         <button
           type="button"
-          className="flex flex-col justify-center items-center w-10 h-10 cursor-pointer relative"
+          className="flex flex-col justify-center items-center w-10 h-10 cursor-pointer relative z-[1003]"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -76,15 +90,17 @@ useEffect(() => {
         </button>
       </header>
 
-      {/* 2. MOBILE MENU OVERLAY & DRAWER */}
+      {/* MOBILE MENU OVERLAY - Fixed to stop touch trapping */}
       <div
-        className={`fixed inset-0 bg-black/50 z-[1000] transition-opacity duration-300 ${
-          isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+        className={`fixed inset-0 bg-black/50 z-[1000] transition-all duration-300 ${
+          isMenuOpen ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none"
         }`}
+        style={{ display: isMenuOpen ? 'block' : 'none' }} 
         onClick={() => setIsMenuOpen(false)}
         aria-hidden="true"
       />
 
+      {/* MOBILE NAV DRAWER */}
       <nav
         className={`fixed top-0 right-0 w-[280px] h-[500px] rounded-bl-2xl bg-white z-[1001] 
         transform transition-transform duration-300 ease-in-out
@@ -95,10 +111,13 @@ useEffect(() => {
           {navLinks.map((link) => (
             <a
               key={link}
-              href={`#${link.toLowerCase().replace(/\s+/g, '-')}`}
+              href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
               className="text-base font-medium uppercase no-underline transition-colors duration-300
               py-4 border-b border-[#f0f0f0] last:border-b-0 text-[#4D4D4D] hover:text-[#6D5EED]"
-              onClick={(e) => { handleLinkClick(e, link) }} 
+              onClick={(e) => {
+                handleLinkClick(e, link);
+                setIsMenuOpen(false); // Ensure menu closes on click
+              }}
             >
               {link}
             </a>
@@ -106,8 +125,7 @@ useEffect(() => {
         </div>
       </nav>
 
-      {/* 3. HERO SECTION - Original Video Layout */}
-      {/* Added id="home" to catch the Home link click */}
+      {/* HERO SECTION */}
       <section id="home" className="px-4 pt-24 pb-16 w-full overflow-hidden">
         <div className="relative flex justify-center w-full items-center mb-12 overflow-hidden rounded-xl">
           <video
@@ -122,9 +140,8 @@ useEffect(() => {
           />
         </div>
 
-        {/* Text Content */}
         <div className="text-left mt-8">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 1, y: 0 }}
             variants={textReveal}
             whileInView="animate"
@@ -133,8 +150,8 @@ useEffect(() => {
           >
             Grow Your Savings with Better Rates
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 1, y: 0 }}
             variants={fadeInUp}
             whileInView="animate"
@@ -144,44 +161,40 @@ useEffect(() => {
             Access better savings rates through an easy to use savings app powered by on-chain financial.
           </motion.p>
 
-          {/* Savings Rate Link/Text */}
-          <motion.div 
-          initial={{ opacity: 1 }}
-          className="mb-10 text-[18px] sm:text-[15px] flex items-center flex-wrap"
-          style={{ fontFamily: "Inter, system-ui, sans-serif" }} 
->
-          <span className="text-[#6D5EED] font-semibold tracking-tight">
-            BOUND savings rate 
-          </span>
-  
-          <span className="relative ml-2 font-semibold">
-          <span 
-          style={{
-          background: "linear-gradient(90deg, #4facfe 0%, #6D5EED 100%)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          display: "inline-block",
-      }}
+          <motion.div
+            initial={{ opacity: 1 }}
+            className="mb-10 text-[18px] sm:text-[15px] flex items-center flex-wrap"
+            style={{ fontFamily: "Inter, system-ui, sans-serif" }}
           >
-          18.83% APY
-          </span>
-
-          <span 
-            className="absolute left-0 -bottom-2 w-[110%] h-[10px]"
-            style={{
-              background: "linear-gradient(90deg, #4facfe 0%, #6D5EED 100%)",
-              clipPath: "ellipse(50% 40% at 50% 40%)", 
-              transform: "rotate(-2.5deg) translateX(-1%)",
-              filter: "blur(0.2px)",
-              opacity: 0.9
-            }}
+            <span className="text-[#6D5EED] font-semibold tracking-tight">
+              BOUND savings rate
+            </span>
+            <span className="relative ml-2 font-semibold">
+              <span
+                style={{
+                  background: "linear-gradient(90deg, #4facfe 0%, #6D5EED 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  display: "inline-block",
+                }}
+              >
+                18.83% APY
+              </span>
+              <span
+                className="absolute left-0 -bottom-2 w-[110%] h-[10px]"
+                style={{
+                  background: "linear-gradient(90deg, #4facfe 0%, #6D5EED 100%)",
+                  clipPath: "ellipse(50% 40% at 50% 40%)",
+                  transform: "rotate(-2.5deg) translateX(-1%)",
+                  filter: "blur(0.2px)",
+                  opacity: 0.9,
+                }}
               />
-          </span>
+            </span>
           </motion.div>
 
-          {/* Action Buttons */}
           <div className="flex gap-3">
-            <motion.button 
+            <motion.button
               variants={buttonHover}
               whileHover={{ scale: 1.05, opacity: 0.9 }}
               whileTap={{ scale: 0.95 }}
@@ -189,7 +202,7 @@ useEffect(() => {
             >
               Start Earning
             </motion.button>
-            <motion.button 
+            <motion.button
               variants={buttonHover}
               whileHover={{ scale: 1.05, backgroundColor: "#f9fafb" }}
               whileTap={{ scale: 0.95 }}

@@ -135,7 +135,16 @@
 }
 /* EMERGENCY SCROLL FIX - Put at the bottom of index.css */
 html, body, #root, div {                
-    overflow-y: auto !important;                
+    overflow-y: auto !important;                  
     height: auto !important;                
     min-height: auto !important;                
+}
+/* ADD TO BOTTOM OF index.css */
+* {
+  outline: 1px solid red !important;
+}
+
+html, body {
+  border: 5px solid blue !important;
+  background: rgba(0, 0, 255, 0.1) !important;
 }
