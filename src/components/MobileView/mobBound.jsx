@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { fadeInUp, textReveal, buttonHover } from "../../utils/animations";
 
-const MobBound = ({ handleLinkClick }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const MobBound = ({ isMenuOpen, setIsMenuOpen, handleLinkClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const navLinks = [
@@ -17,41 +16,17 @@ const MobBound = ({ handleLinkClick }) => {
 
   // 1. INTEGRATED IOS SCROLL LOGIC
   useEffect(() => {
-    const adjustScroll = () => {
-      if (isMenuOpen) {
-        // When menu is open, lock the background to prevent "shaky" bounce
-        document.body.style.overflow = "hidden";
-        document.body.style.height = "100dvh";
-        document.body.style.position = "fixed";
-        document.body.style.width = "100%";
-      } else {
-        // When menu is closed, force absolute scroll freedom for iOS
-        document.body.style.overflow = "auto";
-        document.body.style.overflowX = "hidden";
-        document.body.style.height = "auto";
-        document.body.style.position = "";
-        document.body.style.width = "";
-        document.documentElement.style.overflowY = "auto";
-        document.documentElement.style.height = "auto";
-      }
-    };
-
-    adjustScroll();
-    // Cleanup on unmount
-    return () => {
-      document.body.style.overflow = "";
-      document.body.style.position = "";
-    };
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+      document.body.style.touchAction = "auto";
+    }
   }, [isMenuOpen]);
 
-  // 2. SCROLL POSITION DETECTOR
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);

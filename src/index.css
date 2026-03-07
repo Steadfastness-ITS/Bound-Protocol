@@ -13,11 +13,10 @@
 
   html {
     scroll-behavior: smooth;
-    width: 100%;
-    /* INTEGRATED: Force height and scroll for iOS */
+    /* width: 100%;
     height: auto !important;
     overflow-x: hidden;
-    overflow-y: auto !important;
+    overflow-y: auto !important; */
   }
 
   section, [id] {
@@ -27,20 +26,14 @@
   body {
     font-family: "Hanken Grotesk", sans-serif;
     background: white;
-    /* INTEGRATED: Use dvh for dynamic iOS height */
-    min-height: 100dvh;
     width: 100%;
     overflow-x: hidden;
-    /* INTEGRATED: Force scroll and smooth scrolling */
-    overflow-y: auto !important;
     -webkit-overflow-scrolling: touch;
   }
   
   #root {
     width: 100%;
-    overflow-x: hidden;
-    /* INTEGRATED: Ensure root doesn't block scroll */
-    height: auto !important;
+    /* overflow-x: hidden; */
   }
 }
 

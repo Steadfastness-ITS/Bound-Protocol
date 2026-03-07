@@ -9,12 +9,16 @@ import MobTeam from "./mobTeam";
 import Newsletter from "./newsLetter";
 
 
-const MobileLayout = ({ navLinks, activeLink, isMenuOpen, handleLinkClick, closeMenu, getSectionId }) => {
+const MobileLayout = ({ navLinks, activeLink, isMenuOpen, setIsMenuOpen, handleLinkClick, closeMenu, getSectionId }) => {
   return (
-    <div className="lg:hidden"> 
+    <div className="lg:hidden block"> 
       
       <section id="mobBound">
-        <MobBound />
+        <MobBound 
+          isMenuOpen={isMenuOpen} 
+          setIsMenuOpen={setIsMenuOpen} 
+          handleLinkClick={handleLinkClick} 
+        />
       </section>
 
       <section id="mobPartners">
