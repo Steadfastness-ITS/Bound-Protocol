@@ -127,30 +127,19 @@
   scrollbar-width: none;  /* Firefox */
 }
 
-
-/* EMERGENCY SCROLL FIX - Put at the bottom of index.css */
-/* html, body, #root, div {                
-    overflow-y: auto !important;                  
-    height: auto !important;                
-    min-height: auto !important;                
-} */
-
-/* FINAL EMERGENCY OVERRIDE - Add to bottom of index.css */
-/* html, body {
-  overflow-y: scroll !important; 
+/* Ensure scrolling is NEVER disabled */
+html, body {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
   height: auto !important;
-  min-height: 100% !important;
-  -webkit-overflow-scrolling: touch !important; 
-  position: static !important; 
+  -webkit-overflow-scrolling: touch !important;
+  position: relative !important; /* Changed from static/fixed to allow normal scroll flow */
 }
 
-#root {
-  overflow: visible !important;
-  height: auto !important;
-} */
-
-/* This targets the specific container that usually breaks iOS */
-/* .lg\:hidden {
-  overflow: visible !important;
-  height: auto !important;
-} */
+/* Fix for the fixed header container */
+header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+}

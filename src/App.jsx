@@ -38,7 +38,7 @@ function App() {
       </header>
 
       {/* MAIN CONTENT AREA */}
-      <main className="relative block h-auto overflow-y-visible">
+      <main className="relative block h-auto">
         <MobileLayout
             navLinks={navLinks}
             activeLink={activeLink}
