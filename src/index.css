@@ -13,10 +13,12 @@
 
   html {
     scroll-behavior: smooth;
-    /* width: 100%;
-    height: auto !important;
+    width: 100%;
+    /* CHANGED: Removed height !important to allow natural document growth */
+    height: auto; 
     overflow-x: hidden;
-    overflow-y: auto !important; */
+    /* CHANGED: Force scroll capability without locking */
+    overflow-y: auto; 
   }
 
   section, [id] {
@@ -26,14 +28,20 @@
   body {
     font-family: "Hanken Grotesk", sans-serif;
     background: white;
+    min-height: 100dvh;
     width: 100%;
     overflow-x: hidden;
+    /* CHANGED: Removed auto !important to prevent conflict with React state */
+    overflow-y: visible; 
     -webkit-overflow-scrolling: touch;
+    position: relative;
   }
   
   #root {
     width: 100%;
-    /* overflow-x: hidden; */
+    /* CHANGED: Ensure root is a block container that grows with content */
+    display: block;
+    height: auto;
   }
 }
 
@@ -77,11 +85,6 @@
 .styles_descriptionValue__3_YU3 {
   position: relative;
   background-image: linear-gradient(90deg, #1a88f8, #9896ff);
-  background-image: linear-gradient(
-    90deg,
-    /* color(display-p3 0.1 0.53 0.97),
-    color(display-p3 0.6 0.59 1) */
-  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -90,21 +93,13 @@
 
 /* Seamless infinite scroll animations */
 @keyframes scroll-left {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-33.333%);
-  }
+  from { transform: translateX(0); }
+  to { transform: translateX(-33.333%); }
 }
 
 @keyframes scroll-right {
-  from {
-    transform: translateX(-33.333%);
-  }
-  to {
-    transform: translateX(0);
-  }
+  from { transform: translateX(-33.333%); }
+  to { transform: translateX(0); }
 }
 
 .animate-scroll-left {
@@ -118,28 +113,22 @@
   will-change: transform;
   width: max-content;
 }
+
 .hide-scrollbar::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
+  display: none;
 }
 
 .hide-scrollbar {
-  -ms-overflow-style: none;  /* Internet Explorer and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* Ensure scrolling is NEVER disabled */
-html, body {
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
-  height: auto !important;
-  -webkit-overflow-scrolling: touch !important;
-  position: relative !important; /* Changed from static/fixed to allow normal scroll flow */
-}
-
-/* Fix for the fixed header container */
-header {
-  position: fixed !important;
-  top: 0;
-  left: 0;
-  right: 0;
+/* NEW ADDITION: 
+  Ensures any 'fixed' elements inside the layout don't 
+  accidentally trigger a scroll-lock on iOS 
+*/
+main {
+  display: block;
+  overflow: visible;
+  height: auto;
 }
