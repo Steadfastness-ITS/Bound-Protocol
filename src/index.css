@@ -12,13 +12,12 @@
   }
 
   html {
+    /* Allow the document to define its own height based on content */
+    height: -webkit-fill-available; 
     scroll-behavior: smooth;
-    width: 100%;
-    /* CHANGED: Removed height !important to allow natural document growth */
-    height: auto; 
+    /* Prevent horizontal shake but allow vertical flow */
     overflow-x: hidden;
-    /* CHANGED: Force scroll capability without locking */
-    overflow-y: auto; 
+    overflow-y: visible !important; 
   }
 
   section, [id] {
@@ -28,11 +27,11 @@
   body {
     font-family: "Hanken Grotesk", sans-serif;
     background: white;
-    min-height: 100dvh;
+    min-height: 100vh;
     width: 100%;
     overflow-x: hidden;
     /* CHANGED: Removed auto !important to prevent conflict with React state */
-    overflow-y: visible; 
+    overflow-y: visible !important; 
     -webkit-overflow-scrolling: touch;
     position: relative;
   }

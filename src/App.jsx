@@ -38,7 +38,7 @@ function App() {
       </header>
 
       {/* MAIN CONTENT AREA */}
-      <main className="relative block h-auto">
+      <main className="relative block">
         <MobileLayout
             navLinks={navLinks}
             activeLink={activeLink}
