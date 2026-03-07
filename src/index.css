@@ -12,10 +12,10 @@
   }
 
   html {
-    /* Allow the document to define its own height based on content */
-    height: -webkit-fill-available; 
+    /* CHANGED: Forced auto height and visible overflow to break the scroll lock */
+    height: auto !important;
+    min-height: -webkit-fill-available; 
     scroll-behavior: smooth;
-    /* Prevent horizontal shake but allow vertical flow */
     overflow-x: hidden;
     overflow-y: visible !important; 
   }
@@ -27,20 +27,23 @@
   body {
     font-family: "Hanken Grotesk", sans-serif;
     background: white;
-    min-height: 100vh;
+    /* CHANGED: Replaced min-height 100vh with auto to ensure it grows with content */
+    height: auto !important;
+    min-height: 100% !important;
     width: 100%;
     overflow-x: hidden;
-    /* CHANGED: Removed auto !important to prevent conflict with React state */
+    /* CHANGED: Forced visibility and momentum scrolling for iOS */
     overflow-y: visible !important; 
-    -webkit-overflow-scrolling: touch;
-    position: relative;
+    -webkit-overflow-scrolling: touch !important;
+    position: static !important;
   }
   
   #root {
     width: 100%;
-    /* CHANGED: Ensure root is a block container that grows with content */
-    display: block;
-    height: auto;
+    /* CHANGED: Root must be visible and auto-height for the document to scroll */
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
   }
 }
 
