@@ -41,8 +41,7 @@ function NewsLetter() {
 
   return (
     <motion.section
-      id="contact-us"
-      className="w-full bg-[#19174F] py-12 px-5 mx-auto"
+      id="contact-us" className="w-full bg-[#19174F] py-12 px-5 mx-auto"
       {...textReveal}
     >
       {/* Top Section: Newsletter Signup */}

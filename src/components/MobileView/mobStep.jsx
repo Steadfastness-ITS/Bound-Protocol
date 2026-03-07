@@ -39,7 +39,7 @@ function mobStep() {
   ];
 
   return (
-    <motion.section id="how-it-works" className="relative w-full overflow-hidden" {...textReveal}>
+    <motion.section id="how-it-works" className="relative w-full overflow-x-hidden" {...textReveal}>
       {/* Background Image - Adjusted for accurate UI scaling */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <img

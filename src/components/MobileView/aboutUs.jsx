@@ -4,9 +4,14 @@ import { slideInLeft, slideInRight, imageReveal, textReveal, buttonHover } from 
 const AboutUs = () => {
   return (
     <motion.section 
-      id="mission" className="w-full bg-white py-12 px-5 relative overflow-hidden min-h-screen"
-      {...textReveal}
-    >
+    //   id="mission" className="w-full bg-white py-12 px-5 relative h-auto"
+    //   {...textReveal}
+    // >
+      className="relative w-full h-auto py-20 px-4 bg-white flex flex-col items-center justify-center overflow-x-hidden"
+    initial="initial"
+    whileInView="animate"
+    viewport={{ once: true, amount: 0.2 }} // 'amount' ensures animation triggers when 20% is visible
+  >
       <div className="max-w-[1280px] mx-auto relative z-[2]">
         {/* Changed to items-center to match the centered UI in s.jpeg */}
         <div className="flex flex-col items-center justify-start gap-6">

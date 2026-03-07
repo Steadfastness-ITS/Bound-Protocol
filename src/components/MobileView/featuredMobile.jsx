@@ -1,6 +1,6 @@
 function FeaturedMobile() {
   return (
-    <section className="w-full bg-[#F7F6FE] py-12 lg:py-20 xl:py-24 px-5 lg:px-10 xl:px-20 relative overflow-hidden">
+    <section className="w-full bg-[#F7F6FE] py-12 lg:py-20 xl:py-24 px-5 lg:px-10 xl:px-20 relative overflow-x-hidden">
       {/* Background image */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <img

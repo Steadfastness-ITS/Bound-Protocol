@@ -40,7 +40,7 @@ function Partners() {
 
   return (
     <motion.section
-      className="w-full bg-white py-10 px-8 overflow-hidden"
+      className="w-full bg-white py-10 px-8 overflow-x-hidden"
       {...textReveal}
     >
       <div className="mx-auto">
