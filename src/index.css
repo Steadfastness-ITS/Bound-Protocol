@@ -134,3 +134,24 @@ main {
   overflow: visible;
   height: auto;
 }
+
+
+
+/* Add this to the very bottom of your index.css */
+* {
+  /* Force the browser to allow panning (scrolling) on all elements */
+  touch-action: pan-y !important;
+}
+
+html, body {
+  /* Extreme measure: Ensure the document isn't being treated as a fixed app shell */
+  position: static !important;
+  overflow-y: scroll !important;
+  display: block !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+/* Specific fix for the hidden overflow you mentioned earlier */
+section, div, main {
+  overflow: visible !important;
+}

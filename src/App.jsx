@@ -26,9 +26,9 @@ function App() {
   };
 
   return (
-    <div className="max-w-[1440px] mx-auto block bg-white">
+    <div className="w-full">
       {/* HEADER ONLY CONTAINS NAV LOGIC */}
-      <header className="relative z-[1000]">
+      <header className="fixed top-0 w-full z-[2000]">
         <DesktopLayout 
             navLinks={navLinks} 
             activeLink={activeLink} 
@@ -38,7 +38,7 @@ function App() {
       </header>
 
       {/* MAIN CONTENT AREA */}
-      <main className="relative block">
+      <main className="block w-full">
         <MobileLayout
             navLinks={navLinks}
             activeLink={activeLink}
