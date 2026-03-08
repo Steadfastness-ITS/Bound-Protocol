@@ -26,7 +26,7 @@ const MobBound = ({ isMenuOpen, setIsMenuOpen, handleLinkClick }) => {
     <div className="bg-white h-auto font-sans relative">
       {/* HEADER */}
       <header
-        className={`fixed top-0 left-0 w-full flex justify-between items-center px-4 py-3 bg-white z-[1002] h-[70px] transition-all
+        className={`fixed top-0 left-0 w-full flex justify-between items-center px-4 py-3 bg-white z-[2000] h-[70px] transition-all
           ${isScrolled ? "border-b border-gray-100 shadow-sm" : "border-b-0"}
         `}
       >
