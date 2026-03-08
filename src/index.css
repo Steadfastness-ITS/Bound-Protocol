@@ -12,12 +12,9 @@
   }
 
   html {
-    /* CHANGED: Forced auto height and visible overflow to break the scroll lock */
-    height: auto !important;
-    min-height: -webkit-fill-available; 
+    height: auto;
     scroll-behavior: smooth;
-    overflow-x: hidden;
-    overflow-y: visible !important; 
+    overflow-x: hidden; 
   }
 
   section, [id] {
@@ -27,23 +24,16 @@
   body {
     font-family: "Hanken Grotesk", sans-serif;
     background: white;
-    /* CHANGED: Replaced min-height 100vh with auto to ensure it grows with content */
-    height: auto !important;
-    min-height: 100% !important;
     width: 100%;
-    overflow-x: hidden;
-    /* CHANGED: Forced visibility and momentum scrolling for iOS */
-    overflow-y: visible !important; 
-    -webkit-overflow-scrolling: touch !important;
-    position: static !important;
+    position: relative;
+    overflow-x: hidden; 
+    -webkit-overflow-scrolling: touch;
   }
   
   #root {
     width: 100%;
-    /* CHANGED: Root must be visible and auto-height for the document to scroll */
-    display: block !important;
-    height: auto !important;
-    overflow: visible !important;
+    position: relative;
+    display: block;
   }
 }
 
@@ -124,34 +114,12 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
 /* NEW ADDITION: 
   Ensures any 'fixed' elements inside the layout don't 
   accidentally trigger a scroll-lock on iOS 
 */
 main {
   display: block;
-  overflow: visible;
-  height: auto;
-}
-
-
-
-/* Add this to the very bottom of your index.css */
-* {
-  /* Force the browser to allow panning (scrolling) on all elements */
-  touch-action: pan-y !important;
-}
-
-html, body {
-  /* Extreme measure: Ensure the document isn't being treated as a fixed app shell */
-  position: static !important;
-  overflow-y: scroll !important;
-  display: block !important;
-  -webkit-overflow-scrolling: touch !important;
-}
-
-/* Specific fix for the hidden overflow you mentioned earlier */
-section, div, main {
-  overflow: visible !important;
+    width: 100%;
+    position: relative;
 }

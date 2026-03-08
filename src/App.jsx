@@ -26,7 +26,7 @@ function App() {
   };
 
   return (
-    <div className="w-full">
+    <div className="max-w-[1440px] mx-auto block bg-white">
       {/* HEADER ONLY CONTAINS NAV LOGIC */}
       <header className="fixed top-0 w-full z-[2000]">
         <DesktopLayout 
