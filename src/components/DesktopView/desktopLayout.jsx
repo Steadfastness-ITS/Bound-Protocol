@@ -13,7 +13,12 @@ const DesktopLayout = ({ navLinks, activeLink, handleLinkClick, getSectionId }) 
     <div className="hidden lg:block">
       
       <section id="bound">
-        <Bound />
+        <Bound
+  navLinks={navLinks}
+  activeLink={activeLink}
+  handleLinkClick={handleLinkClick}
+  getSectionId={getSectionId}
+/>
       </section> 
 
       <section id="partners">

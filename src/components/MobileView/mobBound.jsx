@@ -2,17 +2,8 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { fadeInUp, textReveal, buttonHover } from "../../utils/animations";
 
-const MobBound = ({ isMenuOpen, setIsMenuOpen, handleLinkClick }) => {
+const MobBound = ({ navLinks, isMenuOpen, setIsMenuOpen, handleLinkClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-
-  const navLinks = [
-    "HOME",
-    "MISSION",
-    "FEATURES",
-    "HOW IT WORKS",
-    "LEADERSHIP",
-    "CONTACT US",
-  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,7 +51,6 @@ const MobBound = ({ isMenuOpen, setIsMenuOpen, handleLinkClick }) => {
         className={`fixed inset-0 bg-black/50 z-[1000] transition-all duration-300 ${
           isMenuOpen ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none"
         }`}
-        style={{ display: isMenuOpen ? 'block' : 'none' }} 
         onClick={() => setIsMenuOpen(false)}
         aria-hidden="true"
       />
@@ -74,19 +64,18 @@ const MobBound = ({ isMenuOpen, setIsMenuOpen, handleLinkClick }) => {
       >
         <div className="flex flex-col pt-24 px-8 gap-2">
           {navLinks.map((link) => (
-            <a
-              key={link}
-              href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
-              className="text-base font-medium uppercase no-underline transition-colors duration-300
-              py-4 border-b border-[#f0f0f0] last:border-b-0 text-[#4D4D4D] hover:text-[#6D5EED]"
-              onClick={(e) => {
-                handleLinkClick(e, link);
-                setIsMenuOpen(false); // Ensure menu closes on click
-              }}
-            >
-              {link}
-            </a>
-          ))}
+          <a
+            key={link}
+            href="#"
+            className="text-base font-medium uppercase no-underline transition-colors duration-300 py-4 border-b border-[#f0f0f0] last:border-b-0 text-[#4D4D4D] hover:text-[#6D5EED]"
+            onClick={(e) => {
+              handleLinkClick(e, link);
+              setIsMenuOpen(false);
+            }}
+          >
+            {link}
+          </a>
+        ))}
         </div>
       </nav>
 

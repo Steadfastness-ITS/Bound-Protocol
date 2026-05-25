@@ -2,11 +2,9 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { fadeInUp, textReveal, buttonHover, imageReveal } from "../../utils/animations";
 
-const Bound = () => {
+const Bound = ({ navLinks, activeLink, handleLinkClick, getSectionId }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const navLinks = [
-    "HOME", "MISSION", "FEATURES", "HOW IT WORKS", "LEADERSHIP", "CONTACT US"
-  ];
+  
     useEffect(() => {
     const handleScroll = () => {
       // If page scrolls more than 50px, set isScrolled to true
@@ -44,13 +42,16 @@ const Bound = () => {
         </motion.div>
 
         <div className="flex gap-8 items-center">
-          {navLinks.map((link, index) => (
+          {navLinks.map((link) => (
             <a
               key={link}
-              href={`#${link.toLowerCase().replace(/\s+/g, '-')}`}
-              className="text-[12px] text-[#4D4D4D] font-medium hover:text-[#6D5EED] transition-colors tracking-widest"
+              href={`#${getSectionId(link)}`}
+              onClick={(e) => handleLinkClick(e, link)}
+              className={`text-[12px] font-medium transition-colors tracking-widest ${
+                activeLink === link ? "text-[#6D5EED]" : "text-[#4D4D4D]"
+              } hover:text-[#6D5EED]`}
             >
-              {link}
+              {link.toUpperCase()}
             </a>
           ))}
         </div>

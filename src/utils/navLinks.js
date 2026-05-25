@@ -7,11 +7,20 @@ export const navLinks = [
   "Contact Us",
 ];
 
-export const sectionMap = {
-  "Home": "mobBound",
-  "Mission": "aboutUs",
-  "Features": "featuredMobile",
+export const desktopSectionMap = {
+  Home: "bound",
+  Mission: "aboutus",
+  Features: "featured",
+  "How It Works": "step",
+  Leadership: "team",
+  "Contact Us": "newsletter",
+};
+
+export const mobileSectionMap = {
+  Home: "mobBound",
+  Mission: "aboutUs",
+  Features: "featuredMobile",
   "How It Works": "mobStep",
-  "Leadership": "mobTeam",
-  "Contact Us": "newsLetter"
+  Leadership: "mobTeam",
+  "Contact Us": "newsLetter",
 };

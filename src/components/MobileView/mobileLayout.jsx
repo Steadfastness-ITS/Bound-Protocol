@@ -14,11 +14,12 @@ const MobileLayout = ({ navLinks, activeLink, isMenuOpen, setIsMenuOpen, handleL
     <div className="lg:hidden block relative w-full h-auto"> 
       
       <section id="mobBound">
-        <MobBound 
-          isMenuOpen={isMenuOpen} 
-          setIsMenuOpen={setIsMenuOpen} 
-          handleLinkClick={handleLinkClick} 
-        />
+        <MobBound
+  navLinks={navLinks}
+  isMenuOpen={isMenuOpen}
+  setIsMenuOpen={setIsMenuOpen}
+  handleLinkClick={handleLinkClick}
+/>
       </section>
 
       <section id="mobPartners">
@@ -37,7 +38,7 @@ const MobileLayout = ({ navLinks, activeLink, isMenuOpen, setIsMenuOpen, handleL
         <FeaturedMobile />
       </section>
 
-      <section id="MobStep">
+      <section id="mobStep">
         <MobStep  />
       </section>
 
