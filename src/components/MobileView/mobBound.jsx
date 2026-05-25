@@ -14,7 +14,7 @@ const MobBound = ({ navLinks, isMenuOpen, setIsMenuOpen, handleLinkClick }) => {
   }, []);
 
   return (
-    <div className="bg-white h-auto font-sans relative">
+    <div className="bg-white min-h-fit font-sans relative overflow-visible">
       {/* HEADER */}
       <header
         className={`fixed top-0 left-0 w-full flex justify-between items-center px-4 py-3 bg-white z-[2000] h-[70px] transition-all
@@ -80,8 +80,8 @@ const MobBound = ({ navLinks, isMenuOpen, setIsMenuOpen, handleLinkClick }) => {
       </nav>
 
       {/* HERO SECTION */}
-      <section id="home" className="px-4 pt-24 pb-16 w-full overflow-hidden">
-        <div className="relative flex justify-center w-full items-center mb-12 overflow-hidden rounded-xl">
+      <section id="home" className="px-4 pt-24 pb-16 w-full overflow-visible">
+        <div className="relative flex justify-center w-full items-center mb-12 overflow-visible rounded-xl">
           <video
             src="/herovideomobile.mp4"
             poster="/backgroundmobile.png"
