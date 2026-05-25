@@ -60,7 +60,7 @@ const MobBound = ({ navLinks, isMenuOpen, setIsMenuOpen, handleLinkClick }) => {
         className={`fixed top-0 right-0 w-[280px] h-[500px] rounded-bl-2xl bg-white z-[1001] 
         transform transition-transform duration-300 ease-in-out
         shadow-[-10px_0_30px_rgba(0,0,0,0.1)]
-        ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}
+        ${isMenuOpen ? "translate-x-0 pointer-events-auto" : "translate-x-full pointer-events-none"}`}
       >
         <div className="flex flex-col pt-24 px-8 gap-2">
           {navLinks.map((link) => (
@@ -80,8 +80,8 @@ const MobBound = ({ navLinks, isMenuOpen, setIsMenuOpen, handleLinkClick }) => {
       </nav>
 
       {/* HERO SECTION */}
-      <section id="home" className="px-4 pt-24 pb-16 w-full overflow-visible">
-        <div className="relative flex justify-center w-full items-center mb-12 overflow-visible rounded-xl">
+      <section id="home" className="px-4 pt-24 pb-16 w-full">
+        <div className="relative flex justify-center w-full items-center mb-12 overflow-visible rounded-xl pointer-events-none">
           <video
             src="/herovideomobile.mp4"
             poster="/backgroundmobile.png"
@@ -90,7 +90,7 @@ const MobBound = ({ navLinks, isMenuOpen, setIsMenuOpen, handleLinkClick }) => {
             muted
             playsInline
             className="block lg:hidden h-[340px] max-w-full object-cover w-full"
-            style={{ border: "none", outline: "none" }}
+            style={{ border: "none", outline: "none",  pointerEvents: "none", }}
           />
         </div>
 
