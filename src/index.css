@@ -16,6 +16,7 @@
   min-height: 100%;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
   section, [id] {
@@ -29,7 +30,7 @@
   min-height: 100%;
   position: relative;
   overflow-x: hidden;
-  overflow-y: visible;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
   

@@ -13,6 +13,34 @@ const MobBound = ({ navLinks, isMenuOpen, setIsMenuOpen, handleLinkClick }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+  const unlockIOSScroll = () => {
+    document.documentElement.style.overflowY = "auto";
+    document.body.style.overflowY = "auto";
+    document.body.style.position = "relative";
+    document.body.style.height = "auto";
+    document.body.style.touchAction = "auto";
+
+    if (window.scrollY === 0) {
+      window.scrollTo(0, 1);
+
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 50);
+    }
+  };
+
+  unlockIOSScroll();
+
+  window.addEventListener("load", unlockIOSScroll);
+  window.addEventListener("pageshow", unlockIOSScroll);
+
+  return () => {
+    window.removeEventListener("load", unlockIOSScroll);
+    window.removeEventListener("pageshow", unlockIOSScroll);
+  };
+}, []);
+
   return (
     <div className="bg-white min-h-fit font-sans relative overflow-visible">
       {/* HEADER */}
