@@ -16,7 +16,6 @@
   min-height: 100%;
   scroll-behavior: smooth;
   overflow-x: hidden;
-  overflow-y: auto;
 }
 
   section, [id] {
@@ -128,4 +127,9 @@ main {
   display: block;
     width: 100%;
     position: relative;
+}
+html,
+body {
+  overscroll-behavior-y: auto;
+  touch-action: pan-y;
 }

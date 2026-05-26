@@ -13,36 +13,8 @@ const MobBound = ({ navLinks, isMenuOpen, setIsMenuOpen, handleLinkClick }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-  const unlockIOSScroll = () => {
-    document.documentElement.style.overflowY = "auto";
-    document.body.style.overflowY = "auto";
-    document.body.style.position = "relative";
-    document.body.style.height = "auto";
-    document.body.style.touchAction = "auto";
-
-    if (window.scrollY === 0) {
-      window.scrollTo(0, 1);
-
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-      }, 50);
-    }
-  };
-
-  unlockIOSScroll();
-
-  window.addEventListener("load", unlockIOSScroll);
-  window.addEventListener("pageshow", unlockIOSScroll);
-
-  return () => {
-    window.removeEventListener("load", unlockIOSScroll);
-    window.removeEventListener("pageshow", unlockIOSScroll);
-  };
-}, []);
-
   return (
-    <div className="bg-white min-h-fit font-sans relative overflow-visible">
+    <div className="bg-white font-sans relative w-full min-h-screen">
       {/* HEADER */}
       <header
         className={`fixed top-0 left-0 w-full flex justify-between items-center px-4 py-3 bg-white z-[2000] h-[70px] transition-all
@@ -75,13 +47,13 @@ const MobBound = ({ navLinks, isMenuOpen, setIsMenuOpen, handleLinkClick }) => {
       </header>
 
       {/* MOBILE MENU OVERLAY - Fixed to stop touch trapping */}
-      <div
-        className={`fixed inset-0 bg-black/50 z-[1000] transition-all duration-300 ${
-          isMenuOpen ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none"
-        }`}
-        onClick={() => setIsMenuOpen(false)}
-        aria-hidden="true"
-      />
+      {isMenuOpen && (
+  <div
+    className="fixed inset-0 bg-black/50 z-[1000]"
+    onClick={() => setIsMenuOpen(false)}
+    aria-hidden="true"
+  />
+)}
 
       {/* MOBILE NAV DRAWER */}
       <nav
@@ -108,22 +80,29 @@ const MobBound = ({ navLinks, isMenuOpen, setIsMenuOpen, handleLinkClick }) => {
       </nav>
 
       {/* HERO SECTION */}
-      <section id="home" className="px-4 pt-24 pb-16 w-full">
-        <div className="relative flex justify-center w-full items-center mb-12 overflow-visible rounded-xl pointer-events-none">
+      <section
+        id="home" className="px-4 pt-24 pb-16 w-full min-h-screen touch-pan-y"
+        >
+        <div className="relative flex justify-center w-full items-center mb-12 rounded-xl">
           <video
-            src="/herovideomobile.mp4"
-            poster="/backgroundmobile.png"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="block lg:hidden h-[340px] max-w-full object-cover w-full"
-            style={{ border: "none", outline: "none",  pointerEvents: "none", }}
-          />
+  src="/herovideomobile.mp4"
+  poster="/backgroundmobile.png"
+  autoPlay
+  loop
+  muted
+  playsInline
+  preload="metadata"
+  className="block lg:hidden h-[340px] max-w-full object-cover w-full pointer-events-none"
+  style={{
+    border: "none",
+    outline: "none",
+    pointerEvents: "none",
+  }}
+/>
         </div>
 
         <div className="text-left mt-8">
-          <motion.h1
+          <h1
             initial={{ opacity: 1, y: 0 }}
             variants={textReveal}
             whileInView="animate"
@@ -131,9 +110,9 @@ const MobBound = ({ navLinks, isMenuOpen, setIsMenuOpen, handleLinkClick }) => {
             className="text-[45px] font-semibold text-[#1a1a1a] leading-[1.1] mb-6"
           >
             Grow Your Savings with Better Rates
-          </motion.h1>
+          </h1>
 
-          <motion.p
+          <p
             initial={{ opacity: 1, y: 0 }}
             variants={fadeInUp}
             whileInView="animate"
@@ -141,7 +120,7 @@ const MobBound = ({ navLinks, isMenuOpen, setIsMenuOpen, handleLinkClick }) => {
             className="text-[#4D4D4D] text-[17px] leading-relaxed mb-8 max-w-[95%]"
           >
             Access better savings rates through an easy to use savings app powered by on-chain financial.
-          </motion.p>
+          </p>
 
           <motion.div
             initial={{ opacity: 1 }}
