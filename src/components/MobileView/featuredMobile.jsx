@@ -185,7 +185,7 @@ function FeaturedMobile() {
           {/* Card 3: How Your Savings Are Managed */}
           {/* Added mb-2 for extra spacing */}
           <div className="bg-white rounded-2xl lg:rounded-3xl shadow-sm border border-[#E5EAF2] lg:col-span-2 mb-2 lg:mb-0">
-            <div className=" h-60 p-4 relative bg-white rounded-xl shadow-[0px_2.7417476177215576px_2.7417476177215576px_0px_rgba(0,0,0,0.25)] outline outline-[0.69px] outline-offset-[-0.69px] inline-flex flex-col justify-start items-center gap-5 overflow-visible">
+            <div className=" h-60 p-4 relative bg-white rounded-xl shadow-[0px_2.7417476177215576px_2.7417476177215576px_0px_rgba(0,0,0,0.25)] outline outline-[0.69px] outline-offset-[-0.69px] inline-flex flex-col justify-start items-center gap-5 overflow-hidden">
               <div className="self-stretch flex flex-col justify-start items-start gap-2">
                 <div className="self-stretch text-center justify-start text-zinc-800 text-base font-semibold font-['Hanken_Grotesk'] leading-5">
                   How Your Savings Are Managed
@@ -274,7 +274,7 @@ function FeaturedMobile() {
           {/* Card 4: How Your Funds Are Protected */}
           {/* Maintained lg:col-span-3 */}
           <div className="bg-white rounded-2xl lg:rounded-3xl shadow-sm border border-[#E5EAF2] shadow-[0px_8px_60px_0px_rgba(19,13,80,0.30)] outline outline-2 outline-offset-[-2px] outline-[#130d50] lg:col-span-3">
-            <div className="h-60 p-4 relative bg-gradient-to-b from-white to-indigo-100 rounded-xl shadow-[0px_4px_20px_0px_rgba(19,13,80,0.25)] outline outline-[0.69px] outline-offset-[-0.69px] outline-indigo-950 inline-flex flex-col justify-start items-center gap-5 overflow-visible">
+            <div className="h-60 p-4 relative bg-gradient-to-b from-white to-indigo-100 rounded-xl shadow-[0px_4px_20px_0px_rgba(19,13,80,0.25)] outline outline-[0.69px] outline-offset-[-0.69px] outline-indigo-950 inline-flex flex-col justify-start items-center gap-5 overflow-hidden">
               <div className="self-stretch flex flex-col justify-start items-start gap-2">
                 <div className="self-stretch text-center justify-start text-zinc-800 text-base font-semibold font-['Hanken_Grotesk'] leading-5">
                   How Your Funds Are Protected
