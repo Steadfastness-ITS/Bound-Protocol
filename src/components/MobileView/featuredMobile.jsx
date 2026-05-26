@@ -1,6 +1,6 @@
 function FeaturedMobile() {
   return (
-    <section className="w-full bg-[#F7F6FE] py-12 lg:py-20 xl:py-24 px-5 lg:px-10 xl:px-20 relative overflow-x-hidden">
+    <section className="w-full max-w-full bg-[#F7F6FE] py-12 lg:py-20 xl:py-24 px-5 lg:px-10 xl:px-20 relative overflow-x-clip">
       {/* Background image */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <img
@@ -72,7 +72,7 @@ function FeaturedMobile() {
               <div className="flex flex-row gap-4 w-full justify-between">
                 
                 {/* Card a: Yield Bearing Stablecoins */}
-                <div className="relative w-[50%] h-32 px-3 py-4 bg-gradient-to-b from-white to-indigo-100 rounded-[20px] border-[1.5px] border-violet-800 overflow-hidden shadow-inner">
+                <div className="relative w-[50%] h-32 px-3 py-4 bg-gradient-to-b from-white to-indigo-100 rounded-[20px] border-[1.5px] border-violet-800 overflow-visible shadow-inner">
                   <div className="absolute top-4 left-0 right-0 text-center text-zinc-950 text-[11px] font-semibold font-['Hanken_Grotesk'] leading-4">
                     Yield Bearing Stablecoins
                   </div>
@@ -88,7 +88,7 @@ function FeaturedMobile() {
                 </div>
 
                 {/* Card b: Real World Assets */}
-                <div className="relative w-[50%] h-30 px-3 py-4 bg-gradient-to-b from-white to-indigo-100 rounded-[20px] border-[1.5px] border-violet-800 overflow-hidden shadow-inner">
+                <div className="relative w-[50%] h-30 px-3 py-4 bg-gradient-to-b from-white to-indigo-100 rounded-[20px] border-[1.5px] border-violet-800 overflow-visible shadow-inner">
                   <div className="absolute top-4 left-0 right-0 text-center text-zinc-950 text-[11px] font-semibold font-['Hanken_Grotesk'] leading-4">
                     Real World Assets
                   </div>
@@ -109,7 +109,7 @@ function FeaturedMobile() {
           {/* Card 2: Why You Earn Better Rates with BOUND */}
           {/* Added mb-2 for extra spacing */}
           <div className="bg-white rounded-2xl lg:rounded-3xl shadow-sm border border-[#E5EAF2] lg:col-span-3 mb-2 lg:mb-0">
-            <div className="h-60 p-4 relative bg-white rounded-xl shadow-[0px_7.705320835113525px_9.631650924682617px_0px_rgba(96,51,255,0.20)] outline outline-1 outline-offset-[-0.96px] inline-flex flex-col justify-start items-center gap-5 overflow-hidden">
+            <div className="h-60 p-4 relative bg-white rounded-xl shadow-[0px_7.705320835113525px_9.631650924682617px_0px_rgba(96,51,255,0.20)] outline outline-1 outline-offset-[-0.96px] inline-flex flex-col justify-start items-center gap-5 overflow-visible">
               <div className="self-stretch flex flex-col justify-start items-center gap-2">
                 <div className="self-stretch text-center justify-start text-zinc-800 text-base font-semibold font-['Hanken_Grotesk'] leading-5">
                   Why You Earn Better Rates with BOUND
@@ -185,7 +185,7 @@ function FeaturedMobile() {
           {/* Card 3: How Your Savings Are Managed */}
           {/* Added mb-2 for extra spacing */}
           <div className="bg-white rounded-2xl lg:rounded-3xl shadow-sm border border-[#E5EAF2] lg:col-span-2 mb-2 lg:mb-0">
-            <div className=" h-60 p-4 relative bg-white rounded-xl shadow-[0px_2.7417476177215576px_2.7417476177215576px_0px_rgba(0,0,0,0.25)] outline outline-[0.69px] outline-offset-[-0.69px] inline-flex flex-col justify-start items-center gap-5 overflow-hidden">
+            <div className=" h-60 p-4 relative bg-white rounded-xl shadow-[0px_2.7417476177215576px_2.7417476177215576px_0px_rgba(0,0,0,0.25)] outline outline-[0.69px] outline-offset-[-0.69px] inline-flex flex-col justify-start items-center gap-5 overflow-visible">
               <div className="self-stretch flex flex-col justify-start items-start gap-2">
                 <div className="self-stretch text-center justify-start text-zinc-800 text-base font-semibold font-['Hanken_Grotesk'] leading-5">
                   How Your Savings Are Managed
@@ -274,7 +274,7 @@ function FeaturedMobile() {
           {/* Card 4: How Your Funds Are Protected */}
           {/* Maintained lg:col-span-3 */}
           <div className="bg-white rounded-2xl lg:rounded-3xl shadow-sm border border-[#E5EAF2] shadow-[0px_8px_60px_0px_rgba(19,13,80,0.30)] outline outline-2 outline-offset-[-2px] outline-[#130d50] lg:col-span-3">
-            <div className="h-60 p-4 relative bg-gradient-to-b from-white to-indigo-100 rounded-xl shadow-[0px_4px_20px_0px_rgba(19,13,80,0.25)] outline outline-[0.69px] outline-offset-[-0.69px] outline-indigo-950 inline-flex flex-col justify-start items-center gap-5 overflow-hidden">
+            <div className="h-60 p-4 relative bg-gradient-to-b from-white to-indigo-100 rounded-xl shadow-[0px_4px_20px_0px_rgba(19,13,80,0.25)] outline outline-[0.69px] outline-offset-[-0.69px] outline-indigo-950 inline-flex flex-col justify-start items-center gap-5 overflow-visible">
               <div className="self-stretch flex flex-col justify-start items-start gap-2">
                 <div className="self-stretch text-center justify-start text-zinc-800 text-base font-semibold font-['Hanken_Grotesk'] leading-5">
                   How Your Funds Are Protected

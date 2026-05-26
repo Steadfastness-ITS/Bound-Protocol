@@ -1,34 +1,48 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { fadeInUp, textReveal, buttonHover } from "../../utils/animations";
+import { buttonHover } from "../../utils/animations";
 
 const MobBound = ({ navLinks, isMenuOpen, setIsMenuOpen, handleLinkClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-
   const [showHeroVideo, setShowHeroVideo] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+
+      if (window.scrollY > 5) {
+        setShowHeroVideo(true);
+      }
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    const enableVideoAfterFirstTouch = () => {
+      setShowHeroVideo(true);
+      window.removeEventListener("touchstart", enableVideoAfterFirstTouch);
+      window.removeEventListener("wheel", enableVideoAfterFirstTouch);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("touchstart", enableVideoAfterFirstTouch, {
+      passive: true,
+    });
+    window.addEventListener("wheel", enableVideoAfterFirstTouch, {
+      passive: true,
+    });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("touchstart", enableVideoAfterFirstTouch);
+      window.removeEventListener("wheel", enableVideoAfterFirstTouch);
+    };
   }, []);
 
-useEffect(() => {
-  const timer = setTimeout(() => {
-    setShowHeroVideo(true);
-  }, 1500);
-
-  return () => clearTimeout(timer);
-}, []);
-
   return (
-    <div className="bg-white font-sans relative w-full min-h-screen">
+    <div className="bg-white font-sans relative w-full max-w-full min-h-screen overflow-x-clip">
       {/* HEADER */}
       <header
-        className={`fixed top-0 left-0 w-full flex justify-between items-center px-4 py-3 bg-white z-[2000] h-[70px] transition-all
-          ${isScrolled ? "border-b border-gray-100 shadow-sm" : "border-b-0"}
-        `}
+        className={`fixed top-0 left-0 w-full flex justify-between items-center px-4 py-3 bg-white z-[2000] h-[70px] transition-all ${
+          isScrolled ? "border-b border-gray-100 shadow-sm" : "border-b-0"
+        }`}
       >
         <img
           src="/boundprotocollogo.png"
@@ -36,122 +50,112 @@ useEffect(() => {
           className="h-8 w-auto"
         />
 
-        {/* Animated Hamburger Icon */}
         <button
           type="button"
-          className="flex flex-col justify-center items-center w-10 h-10 cursor-pointer relative z-[1003]"
+          className="flex flex-col justify-center items-center w-10 h-10 cursor-pointer relative z-[2001]"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
-          <span className={`block w-6 h-[2px] bg-black transition-all duration-300 ease-in-out ${
-            isMenuOpen ? "rotate-45 translate-y-[4px]" : "-translate-y-1"
-          }`} />
-          <span className={`block w-6 h-[2px] bg-black transition-all duration-300 ease-in-out my-0.5 ${
-            isMenuOpen ? "opacity-0 scale-0" : "opacity-100"
-          }`} />
-          <span className={`block w-6 h-[2px] bg-black transition-all duration-300 ease-in-out ${
-            isMenuOpen ? "-rotate-45 -translate-y-[4px]" : "translate-y-1"
-          }`} />
+          <span
+            className={`block w-6 h-[2px] bg-black transition-all duration-300 ease-in-out ${
+              isMenuOpen ? "rotate-45 translate-y-[4px]" : "-translate-y-1"
+            }`}
+          />
+          <span
+            className={`block w-6 h-[2px] bg-black transition-all duration-300 ease-in-out my-0.5 ${
+              isMenuOpen ? "opacity-0 scale-0" : "opacity-100"
+            }`}
+          />
+          <span
+            className={`block w-6 h-[2px] bg-black transition-all duration-300 ease-in-out ${
+              isMenuOpen ? "-rotate-45 -translate-y-[4px]" : "translate-y-1"
+            }`}
+          />
         </button>
       </header>
 
-      {/* MOBILE MENU OVERLAY - Fixed to stop touch trapping */}
+      {/* MOBILE MENU OVERLAY */}
       {isMenuOpen && (
-  <div
-    className="fixed inset-0 bg-black/50 z-[1000]"
-    onClick={() => setIsMenuOpen(false)}
-    aria-hidden="true"
-  />
-)}
+        <div
+          className="fixed inset-0 bg-black/50 z-[1998]"
+          onClick={() => setIsMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
 
       {/* MOBILE NAV DRAWER */}
-      <nav
-        className={`fixed top-0 right-0 w-[280px] h-[500px] rounded-bl-2xl bg-white z-[1001] 
-        transform transition-transform duration-300 ease-in-out
-        shadow-[-10px_0_30px_rgba(0,0,0,0.1)]
-        ${isMenuOpen ? "translate-x-0 pointer-events-auto" : "translate-x-full pointer-events-none"}`}
-      >
-        <div className="flex flex-col pt-24 px-8 gap-2">
-          {navLinks.map((link) => (
-          <a
-            key={link}
-            href="#"
-            className="text-base font-medium uppercase no-underline transition-colors duration-300 py-4 border-b border-[#f0f0f0] last:border-b-0 text-[#4D4D4D] hover:text-[#6D5EED]"
-            onClick={(e) => {
-              handleLinkClick(e, link);
-              setIsMenuOpen(false);
-            }}
-          >
-            {link}
-          </a>
-        ))}
-        </div>
-      </nav>
+      {isMenuOpen && (
+        <nav className="fixed top-0 right-0 w-[280px] h-[500px] rounded-bl-2xl bg-white z-[1999] shadow-[-10px_0_30px_rgba(0,0,0,0.1)]">
+          <div className="flex flex-col pt-24 px-8 gap-2">
+            {navLinks.map((link) => (
+              <a
+                key={link}
+                href="#"
+                className="text-base font-medium uppercase no-underline transition-colors duration-300 py-4 border-b border-[#f0f0f0] last:border-b-0 text-[#4D4D4D] hover:text-[#6D5EED]"
+                onClick={(e) => {
+                  handleLinkClick(e, link);
+                  setIsMenuOpen(false);
+                }}
+              >
+                {link}
+              </a>
+            ))}
+          </div>
+        </nav>
+      )}
 
       {/* HERO SECTION */}
-      <section
-        id="home" className="px-4 pt-24 pb-16 w-full min-h-screen touch-pan-y"
-        >
+      <section id="home" className="px-4 pt-24 pb-16 w-full min-h-screen">
         <div className="relative flex justify-center w-full items-center mb-12 rounded-xl">
-         {showHeroVideo ? (
-  <video
-    src="/herovideomobile.mp4"
-    poster="/backgroundmobile.png"
-    autoPlay
-    loop
-    muted
-    playsInline
-    preload="none"
-    className="block lg:hidden h-[340px] max-w-full object-cover w-full pointer-events-none"
-    style={{
-      border: "none",
-      outline: "none",
-      pointerEvents: "none",
-    }}
-  />
-) : (
-  <img
-    src="/backgroundmobile.png"
-    alt=""
-    className="block lg:hidden h-[340px] max-w-full object-cover w-full pointer-events-none"
-    aria-hidden="true"
-  />
-)}
+          {showHeroVideo ? (
+            <video
+              src="/herovideomobile.mp4"
+              poster="/backgroundmobile.png"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="none"
+              className="block lg:hidden h-[340px] max-w-full object-cover w-full pointer-events-none"
+              style={{
+                border: "none",
+                outline: "none",
+                pointerEvents: "none",
+              }}
+            />
+          ) : (
+            <img
+              src="/backgroundmobile.png"
+              alt=""
+              className="block lg:hidden h-[340px] max-w-full object-cover w-full pointer-events-none"
+              aria-hidden="true"
+            />
+          )}
         </div>
 
         <div className="text-left mt-8">
-          <h1
-            initial={{ opacity: 1, y: 0 }}
-            variants={textReveal}
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="text-[45px] font-semibold text-[#1a1a1a] leading-[1.1] mb-6"
-          >
+          <h1 className="text-[45px] font-semibold text-[#1a1a1a] leading-[1.1] mb-6">
             Grow Your Savings with Better Rates
           </h1>
 
-          <p
-            initial={{ opacity: 1, y: 0 }}
-            variants={fadeInUp}
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="text-[#4D4D4D] text-[17px] leading-relaxed mb-8 max-w-[95%]"
-          >
-            Access better savings rates through an easy to use savings app powered by on-chain financial.
+          <p className="text-[#4D4D4D] text-[17px] leading-relaxed mb-8 max-w-[95%]">
+            Access better savings rates through an easy to use savings app
+            powered by on-chain financial.
           </p>
 
-          <motion.div
-            initial={{ opacity: 1 }}
+          <div
             className="mb-10 text-[18px] sm:text-[15px] flex items-center flex-wrap"
             style={{ fontFamily: "Inter, system-ui, sans-serif" }}
           >
             <span className="text-[#6D5EED] font-semibold tracking-tight">
               BOUND savings rate
             </span>
+
             <span className="relative ml-2 font-semibold">
               <span
                 style={{
-                  background: "linear-gradient(90deg, #4facfe 0%, #6D5EED 100%)",
+                  background:
+                    "linear-gradient(90deg, #4facfe 0%, #6D5EED 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   display: "inline-block",
@@ -159,10 +163,12 @@ useEffect(() => {
               >
                 18.83% APY
               </span>
+
               <span
                 className="absolute left-0 -bottom-2 w-[110%] h-[10px]"
                 style={{
-                  background: "linear-gradient(90deg, #4facfe 0%, #6D5EED 100%)",
+                  background:
+                    "linear-gradient(90deg, #4facfe 0%, #6D5EED 100%)",
                   clipPath: "ellipse(50% 40% at 50% 40%)",
                   transform: "rotate(-2.5deg) translateX(-1%)",
                   filter: "blur(0.2px)",
@@ -170,7 +176,7 @@ useEffect(() => {
                 }}
               />
             </span>
-          </motion.div>
+          </div>
 
           <div className="flex gap-3">
             <motion.button
@@ -181,6 +187,7 @@ useEffect(() => {
             >
               Start Earning
             </motion.button>
+
             <motion.button
               variants={buttonHover}
               whileHover={{ scale: 1.05, backgroundColor: "#f9fafb" }}
