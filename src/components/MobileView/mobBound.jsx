@@ -5,6 +5,7 @@ import { fadeInUp, textReveal, buttonHover } from "../../utils/animations";
 const MobBound = ({ navLinks, isMenuOpen, setIsMenuOpen, handleLinkClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
+  const [showHeroVideo, setShowHeroVideo] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -12,6 +13,14 @@ const MobBound = ({ navLinks, isMenuOpen, setIsMenuOpen, handleLinkClick }) => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setShowHeroVideo(true);
+  }, 1500);
+
+  return () => clearTimeout(timer);
+}, []);
 
   return (
     <div className="bg-white font-sans relative w-full min-h-screen">
@@ -84,21 +93,30 @@ const MobBound = ({ navLinks, isMenuOpen, setIsMenuOpen, handleLinkClick }) => {
         id="home" className="px-4 pt-24 pb-16 w-full min-h-screen touch-pan-y"
         >
         <div className="relative flex justify-center w-full items-center mb-12 rounded-xl">
-          <video
-  src="/herovideomobile.mp4"
-  poster="/backgroundmobile.png"
-  autoPlay
-  loop
-  muted
-  playsInline
-  preload="metadata"
-  className="block lg:hidden h-[340px] max-w-full object-cover w-full pointer-events-none"
-  style={{
-    border: "none",
-    outline: "none",
-    pointerEvents: "none",
-  }}
-/>
+         {showHeroVideo ? (
+  <video
+    src="/herovideomobile.mp4"
+    poster="/backgroundmobile.png"
+    autoPlay
+    loop
+    muted
+    playsInline
+    preload="none"
+    className="block lg:hidden h-[340px] max-w-full object-cover w-full pointer-events-none"
+    style={{
+      border: "none",
+      outline: "none",
+      pointerEvents: "none",
+    }}
+  />
+) : (
+  <img
+    src="/backgroundmobile.png"
+    alt=""
+    className="block lg:hidden h-[340px] max-w-full object-cover w-full pointer-events-none"
+    aria-hidden="true"
+  />
+)}
         </div>
 
         <div className="text-left mt-8">

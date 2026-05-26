@@ -128,8 +128,3 @@ main {
     width: 100%;
     position: relative;
 }
-html,
-body {
-  overscroll-behavior-y: auto;
-  touch-action: pan-y;
-}
